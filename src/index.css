@@ -31,6 +31,12 @@ code {
   background-color: var(--main-bg-color);
 }
 
+@media (min-width: 991.98px) {
+  #root {
+    display: flex;
+  }
+}
+
 .App h1 {
   color: white;
 }
