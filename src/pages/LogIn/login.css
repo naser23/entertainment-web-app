@@ -79,7 +79,7 @@ input[type="text"]::placeholder {
 @media (min-width: 767.98px) {
   .logIn {
     justify-content: start;
-    padding-top: 15%;
+    padding-top: 5%;
   }
 
   .logInWindow {
@@ -89,6 +89,6 @@ input[type="text"]::placeholder {
 
 @media (min-width: 991.98px) {
   .logInWindow {
-    width: 35%;
+    width: 30%;
   }
 }

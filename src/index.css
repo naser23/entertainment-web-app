@@ -2,6 +2,7 @@
 @import "./pages/home/home.css";
 @import "./pages/LogIn/login.css";
 @import "./pages/SignUp/signup.css";
+@import "./components/Navbar/navbar.css";
 
 body {
   margin: 0;

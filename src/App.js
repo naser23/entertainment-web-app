@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/home/Home";
 import Bookmarked from "./pages/Bookmarked/Bookmarked";
 import Movies from "./pages/Movies/Movies";
@@ -9,6 +10,7 @@ import SignUp from "./pages/SignUp/SignUp";
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/movies" element={<Movies />}></Route>

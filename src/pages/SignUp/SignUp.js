@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import Logo from "../../components/Logo/Logo";
 
 function SignUp() {
+  function onSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
     <div className="signUp">
       <header>
@@ -11,7 +15,7 @@ function SignUp() {
 
       <main className="signUpWindow">
         <h1>Sign Up</h1>
-        <form>
+        <form onSubmit={onSubmit}>
           <input
             className="input"
             type="text"

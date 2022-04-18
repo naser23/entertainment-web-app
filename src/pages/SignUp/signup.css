@@ -86,7 +86,7 @@ input[type="text"]::placeholder {
 @media (min-width: 767.98px) {
   .signUp {
     justify-content: start;
-    padding-top: 15%;
+    padding-top: 5%;
   }
 
   .signUpWindow {
@@ -96,6 +96,6 @@ input[type="text"]::placeholder {
 
 @media (min-width: 991.98px) {
   .signUpWindow {
-    width: 35%;
+    width: 30%;
   }
 }
