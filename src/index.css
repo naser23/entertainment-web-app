@@ -4,6 +4,7 @@
 @import "./pages/SignUp/signup.css";
 @import "./components/Navbar/navbar.css";
 @import "./components/Logo/logo.css";
+@import "./components/SearchBar/searchbar.css";
 
 body {
   margin: 0;
@@ -27,13 +28,15 @@ code {
 
 #root {
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   background-color: var(--main-bg-color);
 }
 
 @media (min-width: 991.98px) {
   #root {
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
   }
 }
 
