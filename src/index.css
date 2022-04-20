@@ -28,20 +28,16 @@ code {
 
 #root {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: var(--main-bg-color);
 }
 
 @media (min-width: 991.98px) {
   #root {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-  }
-}
+    /* position: relative; */
 
-.App h1 {
-  color: white;
+    /* flex-direction: column; */
+  }
 }
 
 /* font-family: 'Outfit', sans-serif; */

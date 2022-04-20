@@ -7,7 +7,7 @@ function SearchBar() {
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form className="searchForm" onSubmit={onSubmit}>
       <div className="searchContainer">
         <img className="searchIcon" src={SearchIcon} alt="search icon" />
         <input

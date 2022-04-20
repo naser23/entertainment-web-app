@@ -3,6 +3,7 @@
 .searchContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 1.5rem 0;
   gap: 1rem;
   padding-left: 1rem;
@@ -17,6 +18,7 @@
   width: 90%;
   height: 2rem;
   background: none;
+  outline: none;
 
   border: none;
   color: white;
@@ -30,7 +32,17 @@
 
 @media (min-width: 991.98px) {
   .searchContainer {
-    width: auto;
+    width: 80%;
     height: 3rem;
+    margin: 0;
+    position: fixed;
+    left: 10%;
+    bottom: 87.5%;
+    /* bottom: 30rem; */
   }
+
+  /* .searchForm {
+    position: sticky;
+    top: 30%;
+  } */
 }
