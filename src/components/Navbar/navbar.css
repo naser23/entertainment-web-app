@@ -38,13 +38,13 @@
 @media (min-width: 991.98px) {
   .navbar {
     width: 6rem;
-    height: 90vh;
+    height: 95%;
     flex-direction: column;
     align-items: center;
     margin-left: 2rem;
     /* margin-top: 2rem; */
-    top: 5%;
-    position: sticky;
+    top: 2.5%;
+    position: fixed;
   }
 
   .navbarLinks {
