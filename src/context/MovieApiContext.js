@@ -16,8 +16,11 @@ export function MovieApiProvider({ children }) {
   useEffect(() => {
     async function getData() {
       try {
-        const response = await fetch("data.json", settings);
+        const response = await fetch(
+          "https://imdb-api.com/en/API/Search/k_jhige41v/sonic"
+        );
         const result = await response.json();
+        console.log(result);
         return setData(result);
       } catch (error) {
         console.log(error);

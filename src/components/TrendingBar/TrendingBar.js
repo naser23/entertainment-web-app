@@ -6,7 +6,7 @@ function TrendingBar() {
   const [trending, setTrending] = useState([]);
   const { data } = useContext(MovieApiContext);
 
-  data && data.map((piece) => piece.isTrending && console.log(piece));
+  // data && data.map((piece) => piece.isTrending && console.log(piece));
 
   return <div className="header">TrendingBar</div>;
 }
