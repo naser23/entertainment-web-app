@@ -5,6 +5,7 @@
 @import "./components/Navbar/navbar.css";
 @import "./components/Logo/logo.css";
 @import "./components/SearchBar/searchbar.css";
+@import "./components/MediaItem/mediaitem.css";
 
 body {
   margin: 0;

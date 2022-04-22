@@ -13,26 +13,43 @@ export function MovieApiProvider({ children }) {
     },
   };
 
-  useEffect(() => {
-    async function getData() {
-      try {
-        const response = await fetch(
-          "https://imdb-api.com/en/API/Search/k_jhige41v/sonic"
-        );
-        const result = await response.json();
-        console.log(result);
-        return setData(result);
-      } catch (error) {
-        console.log(error);
-      }
+  // useEffect(() => {
+  //   async function getData(text) {
+  //     const params = new URLSearchParams({ q: text });
+
+  //     try {
+  //       const response = await fetch(
+  //         `https://imdb-api.com/en/API/Search/k_jhige41v/${params}`
+  //       );
+  //       const result = await response.json();
+  //       console.log(result);
+  //       return setData(result);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   getData();
+  // }, []);
+
+  async function getData(text) {
+    const params = new URLSearchParams({ q: text });
+
+    try {
+      const response = await fetch(
+        `https://imdb-api.com/en/API/Search/k_jhige41v/${params}`
+      );
+      const result = await response.json();
+      console.log(result);
+      return setData(result);
+    } catch (error) {
+      console.log(error);
     }
-    getData();
-  }, []);
+  }
 
   // data && data.map((piece) => console.log(piece.title));
 
   return (
-    <MovieApiContext.Provider value={{ data }}>
+    <MovieApiContext.Provider value={{ data, getData }}>
       {children}
     </MovieApiContext.Provider>
   );
