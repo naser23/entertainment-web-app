@@ -5,6 +5,7 @@
 @import "./components/Navbar/navbar.css";
 @import "./components/Logo/logo.css";
 @import "./components/SearchBar/searchbar.css";
+@import "./components/TrendingBar/trendingbar.css";
 @import "./components/MediaItem/mediaitem.css";
 
 body {
@@ -34,9 +35,6 @@ code {
 }
 
 @media (min-width: 991.98px) {
-  #root {
-    /* flex-direction: column; */
-  }
 }
 
 /* font-family: 'Outfit', sans-serif; */

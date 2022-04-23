@@ -1,3 +1,19 @@
-.header {
+.trendingBar {
   color: white;
+}
+
+.trendingHeader {
+  padding-bottom: 1rem;
+}
+
+.trendingItemContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  list-style-type: none;
+  padding: 0 1rem;
+}
+
+.trendingItem {
+  border: 3px solid white;
 }
