@@ -1,12 +1,15 @@
 import React from "react";
 import { useState, useContext } from "react";
+import { useEffect } from "react";
 import MovieApiContext from "../../context/MovieApiContext";
 
 function TrendingBar() {
-  const [media, setMedia] = useState([]);
-  const { data, loading, getInTheatersData } = useContext(MovieApiContext);
+  const [trending, setTrending] = useState([]);
+  const { data, loading, getData } = useContext(MovieApiContext);
 
-  // data && data.map((piece) => piece.isTrending && console.log(piece));
+  useEffect(() => {
+    getData();
+  }, []);
 
   // to get the list of movies that are in theaters: https://imdb-api.com/en/API/InTheaters/k_12345678
 
@@ -18,11 +21,15 @@ function TrendingBar() {
       ) : (
         <ul className="trendingItemContainer">
           {data &&
-            data.results.map((item) => (
-              <li key={item.id} className="trendingItem">
-                item
-              </li>
-            ))}
+            data.map(
+              (item) =>
+                item.isTrending && (
+                  <li key={data.indexOf(item)} className="trendingItem">
+                    <p>{item.title}</p>
+                    <p>{item.category}</p>
+                  </li>
+                )
+            )}
         </ul>
       )}
     </div>
