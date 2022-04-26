@@ -2,26 +2,18 @@ import React from "react";
 import { useState, useContext } from "react";
 import { useEffect } from "react";
 import MovieApiContext from "../../context/MovieApiContext";
-// import { jsonData } from "../../data.json";
+import { jsonData } from "../../data";
 import background from "../../assets/thumbnails/beyond-earth/trending/small.jpg";
 
 function TrendingBar() {
   const [trending, setTrending] = useState([]);
   const { data, loading, getData } = useContext(MovieApiContext);
+  console.log(jsonData);
 
-  const backgroundStyles = {};
-
-  useEffect(() => {
-    getData();
-    // data && data.map((item) => item.isTrending && console.log(item.thumbnail));
-  }, []);
-
-  // data &&
-  //   data.map(
-  //     (item) => item.isTrending && console.log(item.thumbnail.trending.small)
-  //   );
-
-  // to get the list of movies that are in theaters: https://imdb-api.com/en/API/InTheaters/k_12345678
+  // useEffect(() => {
+  //   // getData();
+  //   // data && data.map((item) => item.isTrending && console.log(item.thumbnail));
+  // }, []);
 
   return (
     <div className="trendingBar">
@@ -30,15 +22,15 @@ function TrendingBar() {
         <h1>Loading...</h1>
       ) : (
         <ul className="trendingItemContainer">
-          {data &&
-            data.map(
+          {jsonData &&
+            jsonData.map(
               (item) =>
                 item.isTrending && (
                   <li
-                    key={data.indexOf(item)}
+                    key={jsonData.indexOf(item)}
                     className="trendingItem"
                     style={{
-                      backgroundImage: `url(${item.thumbnail.trending.small})`,
+                      backgroundImage: `url(${item.thumbnail.trending.large})`,
                     }}
                   >
                     <p>{item.title}</p>

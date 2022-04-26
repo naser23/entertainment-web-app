@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
 const MovieApiContext = createContext();
 
@@ -14,8 +14,6 @@ export function MovieApiProvider({ children }) {
   };
 
   async function getData() {
-    // const params = new URLSearchParams({ q: text });
-
     try {
       setLoading(true);
       const response = await fetch(`data.json`, settings);
@@ -26,23 +24,6 @@ export function MovieApiProvider({ children }) {
       console.log(error);
     }
   }
-
-  // async function getInTheatersData() {
-  //   try {
-  //     setLoading(true);
-  //     const response = await fetch(
-  //       `https://imdb-api.com/en/API/InTheaters/k_jhige41v`
-  //     );
-  //     const result = await response.json();
-  //     console.log(result);
-  //     setLoading(false);
-  //     return setOutNow(result);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // https://imdb-api.com/en/API/Search/k_jhige41v/${params}
 
   return (
     <MovieApiContext.Provider value={{ data, loading, setLoading, getData }}>
