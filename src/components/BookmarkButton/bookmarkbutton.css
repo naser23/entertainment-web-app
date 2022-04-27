@@ -1,0 +1,16 @@
+.BookmarkButton {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 20px;
+  border: none;
+  position: absolute;
+  left: 85%;
+  top: 5%;
+}
+
+@media (min-width: 991.98px) {
+  .BookmarkButton {
+    left: 90%;
+  }
+}

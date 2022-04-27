@@ -3,7 +3,9 @@ import { useState, useContext } from "react";
 import { useEffect } from "react";
 import MovieApiContext from "../../context/MovieApiContext";
 import { jsonData } from "../../data";
-import background from "../../assets/thumbnails/beyond-earth/trending/small.jpg";
+import BookmarkButton from "../BookmarkButton/BookmarkButton";
+import MovieIcon from "../../assets/icon-category-movie.svg";
+import TvIcon from "../../assets/icon-category-tv.svg";
 
 function TrendingBar() {
   const [trending, setTrending] = useState([]);
@@ -33,10 +35,24 @@ function TrendingBar() {
                       backgroundImage: `url(${item.thumbnail.regular.large})`,
                     }}
                   >
-                    <p>{item.title}</p>
-                    <p>{item.category}</p>
-                    <p>{item.year}</p>
-                    <p>{item.rating}</p>
+                    <BookmarkButton />
+                    <section className="trendingItemInfo">
+                      <div className="itemFacts">
+                        <p>{item.year}</p>
+                        <div className="smallCircle"></div>
+                        <span className="itemCategory">
+                          <img
+                            src={item.category === "Movie" ? MovieIcon : TvIcon}
+                            alt="Media Type Icon"
+                          />
+                          <p>{item.category}</p>
+                        </span>
+                        <div className="smallCircle"></div>
+                        <p>{item.rating}</p>
+                      </div>
+
+                      <h3 className="mediaTitle">{item.title}</h3>
+                    </section>
                   </li>
                 )
             )}
