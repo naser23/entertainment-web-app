@@ -30,11 +30,13 @@ function TrendingBar() {
                     key={jsonData.indexOf(item)}
                     className="trendingItem"
                     style={{
-                      backgroundImage: `url(${item.thumbnail.trending.large})`,
+                      backgroundImage: `url(${item.thumbnail.regular.large})`,
                     }}
                   >
                     <p>{item.title}</p>
                     <p>{item.category}</p>
+                    <p>{item.year}</p>
+                    <p>{item.rating}</p>
                   </li>
                 )
             )}

@@ -13,9 +13,17 @@
   grid-auto-columns: 20rem;
   gap: 1rem;
   list-style-type: none;
-  overflow-x: auto;
+
+  /* come back to this later and find a better solution */
+  overflow-x: scroll;
   overflow-y: hidden;
   overscroll-behavior-inline: contain;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.trendingItemContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .trendingItem {
@@ -34,5 +42,9 @@
 
   .trendingItemContainer {
     grid-auto-columns: 36%;
+  }
+
+  .trendingItem {
+    height: 15rem;
   }
 }
