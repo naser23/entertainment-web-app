@@ -1,0 +1,36 @@
+.recommendedForYou {
+  color: white;
+  padding-top: 1rem;
+  overflow-x: hidden;
+}
+
+.recommendedHeader {
+  font-weight: 300;
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+
+.mediaContainer {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 2rem;
+  /* display: flex;
+  flex-wrap: wrap; */
+}
+
+.mediaItem {
+  display: flex;
+  width: 100%;
+}
+
+.imgArea {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.img {
+  width: 100%;
+}

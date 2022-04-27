@@ -10,7 +10,6 @@ import TvIcon from "../../assets/icon-category-tv.svg";
 function TrendingBar() {
   const [trending, setTrending] = useState([]);
   const { data, loading, getData } = useContext(MovieApiContext);
-  console.log(jsonData);
 
   // useEffect(() => {
   //   // getData();

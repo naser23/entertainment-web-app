@@ -1,13 +1,13 @@
 import React from "react";
-
 import TrendingBar from "../../components/TrendingBar/TrendingBar";
+import Recommended from "../../components/Recommended/Recommended";
 
 function Home() {
   return (
     <>
       <main className="homeContainer">
-        {/* <h1 className="header">Home</h1> */}
         <TrendingBar />
+        <Recommended />
       </main>
       ;
     </>

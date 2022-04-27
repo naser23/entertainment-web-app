@@ -304,21 +304,6 @@ export const jsonData = [
     isBookmarked: true,
     isTrending: false,
   },
-  // {
-  //   "title": "Whispering Hill",
-  //   "thumbnail": {
-  //     "regular": {
-  //       "small": require("./assets/thumbnails/whisperinghill/regular/small.jpg"),
-  //       "medium": require("./assets/thumbnails/whisperinghill/regular/medium.jpg"),
-  //       "large":require("./assets/thumbnails/whisperinghill/aaa.jpg")
-  //     }
-  //   },
-  //   "year": 2017,
-  //   "category": "Movie",
-  //   "rating": "E",
-  //   "isBookmarked": false,
-  //   "isTrending": false
-  // },
   {
     title: "112",
     thumbnail: {
