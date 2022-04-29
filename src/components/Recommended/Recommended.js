@@ -21,6 +21,21 @@ function Recommended() {
                   />
                   <BookmarkButton />
                 </div>
+                <div className="itemFacts">
+                  <p>{item.year}</p>
+                  <div className="smallCircle"></div>
+                  <span className="itemCategory">
+                    <img
+                      src={item.category === "Movie" ? MovieIcon : TvIcon}
+                      alt="Media Type Icon"
+                    />
+                    <p>{item.category}</p>
+                  </span>
+                  <div className="smallCircle"></div>
+                  <p>{item.rating}</p>
+                </div>
+
+                <h3 className="mediaTitle">{item.title}</h3>
               </li>
             )
         )}

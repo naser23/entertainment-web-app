@@ -50,7 +50,7 @@ function TrendingBar() {
                         <p>{item.rating}</p>
                       </div>
 
-                      <h3 className="mediaTitle">{item.title}</h3>
+                      <h3 className="trendingMediaTitle">{item.title}</h3>
                     </section>
                   </li>
                 )
