@@ -5,8 +5,14 @@
   border-radius: 20px;
   border: none;
   position: absolute;
-  left: 85%;
+  left: 80%;
   top: 5%;
+}
+
+@media (min-width: 767.98px) {
+  .mediaBookmarkButton {
+    left: 85%;
+  }
 }
 
 @media (min-width: 991.98px) {
