@@ -1,6 +1,5 @@
 .recommendedForYou {
   color: white;
-  overflow-x: hidden;
   padding: 0 1rem;
   padding-top: 1rem;
 }
@@ -12,15 +11,14 @@
 }
 
 .mediaContainer {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  overflow-x: hidden;
-  list-style-type: none;
+  gap: 2rem; */
 
-  /* display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 2rem; */
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 1.25rem;
   /* display: flex;
   flex-wrap: wrap; */
 }
@@ -28,9 +26,19 @@
 .mediaItem {
   display: flex;
   flex-direction: column;
-  width: 45%;
+  position: relative;
+
+  /* width: 45%; */
 
   /* width: 350px; */
+}
+
+.mediaItemFacts {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  padding-top: 1rem;
 }
 
 .imgArea {
@@ -38,12 +46,15 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .img {
-  width: 100%;
   border-radius: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 .mediaTitle {
@@ -54,8 +65,8 @@
 @media (min-width: 567.98px) {
 }
 @media (min-width: 767.98px) {
-  .mediaItem {
-    width: 30%;
+  .mediaContainer {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .img {
@@ -69,12 +80,12 @@
     padding-right: 0;
   }
 
-  .mediaItem {
-    width: 30%;
+  .mediaContainer {
+    padding-right: 1rem;
   }
 }
 @media (min-width: 1199.98px) {
-  .mediaItem {
-    width: 22%;
+  .mediaContainer {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }

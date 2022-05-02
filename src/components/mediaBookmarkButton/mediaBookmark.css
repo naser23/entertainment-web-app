@@ -1,4 +1,4 @@
-.BookmarkButton {
+.mediaBookmarkButton {
   background-color: rgba(0, 0, 0, 0.5);
   width: 2rem;
   height: 2rem;
@@ -10,7 +10,7 @@
 }
 
 @media (min-width: 991.98px) {
-  .BookmarkButton {
-    left: 92.5%;
+  .mediaBookmarkButton {
+    left: 87.5%;
   }
 }

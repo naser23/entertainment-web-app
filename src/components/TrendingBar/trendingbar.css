@@ -92,4 +92,8 @@
   .trendingItem {
     height: 15rem;
   }
+
+  .itemFacts {
+    font-size: 0.8rem;
+  }
 }

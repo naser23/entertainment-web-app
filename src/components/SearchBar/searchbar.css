@@ -2,7 +2,7 @@
 
 .searchContainer {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   margin: 1.5rem 0;
   gap: 1rem;
@@ -35,13 +35,21 @@
   .searchContainer {
     height: 3rem;
     margin: 0;
+
     position: absolute;
     left: 10%;
     bottom: 90%;
+
     /* bottom: 30rem; */
   }
 
   .searchBar {
     width: 80%;
+  }
+}
+
+@media (min-width: 1199.98px) {
+  .searchContainer {
+    padding-left: 0;
   }
 }
