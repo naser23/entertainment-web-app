@@ -55,6 +55,27 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  opacity: 0.4;
+  transition: all 0.2s ease-in-out;
+}
+
+.img:hover {
+  opacity: 0.4;
+}
+
+.playButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background: none;
+  backdrop-filter: blur(24px);
+  padding: 0.5rem 1rem;
+  /* border: none; */
+}
+
+.playButton p {
+  font-size: 1rem;
 }
 
 .mediaTitle {
@@ -87,5 +108,16 @@
 @media (min-width: 1199.98px) {
   .mediaContainer {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .playButtonContainer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .playButton {
+    width: 50%;
   }
 }

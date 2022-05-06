@@ -2,6 +2,7 @@ import React from "react";
 import MediaBookmark from "../mediaBookmarkButton/MediaBookmark";
 import MovieIcon from "../../assets/icon-category-movie.svg";
 import TvIcon from "../../assets/icon-category-tv.svg";
+import PlayIcon from "../../assets/icon-play.svg";
 import { jsonData } from "../../data";
 
 function Recommended() {
@@ -12,25 +13,20 @@ function Recommended() {
         {jsonData.map(
           (item) =>
             !item.isTrending && (
-              // <li key={jsonData.indexOf(item)} className="mediaItem">
-              //   <img
-              //     className="img"
-              //     src={item.thumbnail.regular.small}
-              //     alt={item.category === "Movie" ? "Movie Icon" : "Tv Icon"}
-              //   />
-              //   {/* <p>
-              //     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              //     Porro consequuntur possimus officiis sunt ipsum qui, iste ut
-              //     esse blanditiis vel nam enim voluptatem inventore, natus
-              //     nostrum illo repellendus.
-              //   </p> */}
-              // </li>
               <li className="mediaItem" key={jsonData.indexOf(item)}>
-                <img
-                  className="img"
-                  src={item.thumbnail.regular.small}
-                  alt={item.category === "Movie" ? "Movie Icon" : "Tv Icon"}
-                />
+                <>
+                  <img
+                    className="img"
+                    src={item.thumbnail.regular.small}
+                    alt={item.category === "Movie" ? "Movie Icon" : "Tv Icon"}
+                  />
+                  <div className="playButtonContainer">
+                    <div className="playButton">
+                      <img src={PlayIcon} alt="Play-icon" />
+                      <p>Play</p>
+                    </div>
+                  </div>
+                </>
                 <MediaBookmark />
                 <div className="mediaItemFacts">
                   <p>{item.year}</p>
