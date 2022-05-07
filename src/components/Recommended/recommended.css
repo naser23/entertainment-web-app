@@ -42,11 +42,7 @@
 }
 
 .imgArea {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  /* width: 100%; */
+  width: 100%;
 }
 
 .img {
@@ -76,6 +72,14 @@
 
 .playButton p {
   font-size: 1rem;
+}
+
+.playButtonContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* height: 100%; */
 }
 
 .mediaTitle {
@@ -110,14 +114,7 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .playButtonContainer {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .playButton {
+  /* .playButton {
     width: 50%;
-  }
+  } */
 }
