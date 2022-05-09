@@ -11,26 +11,16 @@
 }
 
 .mediaContainer {
-  /* display: flex;
-  flex-wrap: wrap;
-  gap: 2rem; */
-
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-gap: 1.25rem;
-  /* display: flex;
-  flex-wrap: wrap; */
 }
 
 .mediaItem {
   display: flex;
   flex-direction: column;
   position: relative;
-
-  /* width: 45%; */
-
-  /* width: 350px; */
 }
 
 .mediaItemFacts {
@@ -41,9 +31,10 @@
   padding-top: 1rem;
 }
 
-.imgArea {
+/* .imgArea {
   width: 100%;
-}
+  border: 1px solid white;
+} */
 
 .img {
   border-radius: 10px;
@@ -51,12 +42,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  opacity: 0.4;
-  transition: all 0.2s ease-in-out;
-}
-
-.img:hover {
-  opacity: 0.4;
+  transition: all 0.1s ease-in-out;
+  width: 100%;
 }
 
 .playButton {
@@ -65,9 +52,11 @@
   align-items: center;
   gap: 2rem;
   background: none;
-  backdrop-filter: blur(24px);
+  border-radius: 20px;
+  background-color: hsla(0, 0%, 100%, 0.3);
   padding: 0.5rem 1rem;
-  /* border: none; */
+  position: absolute;
+  margin-top: 2.5rem;
 }
 
 .playButton p {
@@ -76,10 +65,18 @@
 
 .playButtonContainer {
   position: absolute;
-  display: flex;
+  display: none;
   justify-content: center;
   width: 100%;
-  /* height: 100%; */
+}
+
+.img:hover {
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.img:hover + .playButtonContainer {
+  display: flex;
 }
 
 .mediaTitle {
@@ -89,6 +86,7 @@
 
 @media (min-width: 567.98px) {
 }
+
 @media (min-width: 767.98px) {
   .mediaContainer {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -96,6 +94,10 @@
 
   .img {
     border-radius: 20px;
+  }
+
+  .playButton {
+    margin-top: 3.5rem;
   }
 }
 
@@ -108,13 +110,21 @@
   .mediaContainer {
     padding-right: 1rem;
   }
+
+  .playButton {
+    margin-top: 4.5rem;
+  }
 }
 @media (min-width: 1199.98px) {
   .mediaContainer {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  /* .playButton {
-    width: 50%;
-  } */
+  .playButton {
+    margin-top: 5rem;
+  }
+
+  .playButton {
+    margin-top: 7rem;
+  }
 }

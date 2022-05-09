@@ -19,11 +19,6 @@ function Recommended() {
                   src={item.thumbnail.regular.small}
                   alt={item.category === "Movie" ? "Movie Icon" : "Tv Icon"}
                 />
-                <div className="playButton">
-                  <img src={PlayIcon} alt="Play-icon" />
-                  <p>Play</p>
-                </div>
-
                 <MediaBookmark />
                 <div className="mediaItemFacts">
                   <p>{item.year}</p>
@@ -38,8 +33,13 @@ function Recommended() {
                   <div className="smallCircle"></div>
                   <p>{item.rating}</p>
                 </div>
-
                 <h3 className="mediaTitle">{item.title}</h3>
+                <div className="playButtonContainer">
+                  <div className="playButton">
+                    <img src={PlayIcon} alt="Play-icon" />
+                    <p>Play</p>
+                  </div>
+                </div>
               </li>
             )
         )}
