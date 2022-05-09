@@ -34,13 +34,10 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-
   display: grid;
   grid-auto-rows: 1fr;
   position: relative;
-  /* display: flex;
-  flex-direction: column;
-  align-items: end; */
+  transition: all 0.1s ease-in-out;
 }
 
 .trendingItemInfo {
@@ -50,6 +47,11 @@
   justify-content: end;
   padding-bottom: 1rem;
   padding-left: 1rem;
+}
+
+.trendingItem:hover {
+  opacity: 0.4;
+  cursor: pointer;
 }
 
 .itemFacts {
@@ -95,5 +97,23 @@
 
   .itemFacts {
     font-size: 0.8rem;
+  }
+}
+
+/* // bookmark button // */
+.BookmarkButton {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 20px;
+  border: none;
+  position: absolute;
+  left: 85%;
+  top: 5%;
+}
+
+@media (min-width: 991.98px) {
+  .BookmarkButton {
+    left: 92.5%;
   }
 }

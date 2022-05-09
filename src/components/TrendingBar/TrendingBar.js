@@ -3,7 +3,8 @@ import { useState, useContext } from "react";
 import { useEffect } from "react";
 import MovieApiContext from "../../context/MovieApiContext";
 import { jsonData } from "../../data";
-import BookmarkButton from "../BookmarkButton/BookmarkButton";
+import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
+import BookmarkIconFull from "../../assets/icon-bookmark-full.svg";
 import MovieIcon from "../../assets/icon-category-movie.svg";
 import TvIcon from "../../assets/icon-category-tv.svg";
 
@@ -34,7 +35,9 @@ function TrendingBar() {
                       backgroundImage: `url(${item.thumbnail.regular.large})`,
                     }}
                   >
-                    <BookmarkButton />
+                    <button className="BookmarkButton">
+                      <img src={BookmarkIconEmpty} alt="Bookmark Icon" />
+                    </button>
                     <section className="trendingItemInfo">
                       <div className="itemFacts">
                         <p>{item.year}</p>
