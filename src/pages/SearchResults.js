@@ -11,7 +11,15 @@ import { jsonData } from "../data";
 function SearchResults() {
   const { results } = useContext(MovieApiContext);
 
-  results && console.log(results);
+  if (results && results.length == 0) {
+    return (
+      <main className="pageContainer">
+        <h1 className="header">Results for Search</h1>
+        <p>No Results...</p>
+      </main>
+    );
+  }
+
   return (
     <>
       <main className="pageContainer">
