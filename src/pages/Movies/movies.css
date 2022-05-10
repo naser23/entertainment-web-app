@@ -1,0 +1,35 @@
+.movieContainer {
+  width: 100%;
+  overflow-x: hidden;
+  color: white;
+  padding: 0 1rem;
+}
+
+.header {
+  padding-bottom: 1rem;
+}
+
+@media (min-width: 567.98px) {
+}
+
+@media (min-width: 767.98px) {
+}
+
+@media (min-width: 991.98px) {
+  .movieContainer {
+    /* width: 100%; */
+    /* height: 100vh; */
+    padding-left: 12%;
+    padding-top: 7.5%;
+  }
+}
+
+.header {
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 1199.98px) {
+  .movieContainer {
+    padding-left: 10%;
+  }
+}
