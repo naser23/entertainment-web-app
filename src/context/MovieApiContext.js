@@ -13,7 +13,7 @@ export function MovieApiProvider({ children }) {
     },
   };
 
-  async function getData() {
+  async function getData(text) {
     try {
       setLoading(true);
       const response = await fetch(`data.json`, settings);
