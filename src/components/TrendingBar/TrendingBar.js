@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import MovieApiContext from "../../context/MovieApiContext";
 import { jsonData } from "../../data";
 import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
-import BookmarkIconFull from "../../assets/icon-bookmark-full.svg";
+// import BookmarkIconFull from "../assets/icon-bookmark-full.svg";
 import MovieIcon from "../../assets/icon-category-movie.svg";
 import TvIcon from "../../assets/icon-category-tv.svg";
 

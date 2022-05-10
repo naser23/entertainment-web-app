@@ -1,20 +1,20 @@
 import React from "react";
-import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
-import BookmarkIconFull from "../../assets/icon-bookmark-full.svg";
-import MovieIcon from "../../assets/icon-category-movie.svg";
-import TvIcon from "../../assets/icon-category-tv.svg";
-import PlayIcon from "../../assets/icon-play.svg";
-import { jsonData } from "../../data";
+import BookmarkIconEmpty from "../assets/icon-bookmark-empty.svg";
+import BookmarkIconFull from "../assets/icon-bookmark-full.svg";
+import MovieIcon from "../assets/icon-category-movie.svg";
+import TvIcon from "../assets/icon-category-tv.svg";
+import PlayIcon from "../assets/icon-play.svg";
+import { jsonData } from "../data";
 
-function Movies() {
+function TvSeries() {
   return (
     <>
-      <main className="movieContainer">
-        <h1 className="header">Movies</h1>
+      <main className="pageContainer">
+        <h1 className="header">TV Shows</h1>
         <ul className="mediaContainer">
           {jsonData.map(
             (item) =>
-              item.category == "Movie" && (
+              item.category == "TV Series" && (
                 <li className="mediaItem" key={jsonData.indexOf(item)}>
                   <img
                     className="img"
@@ -54,4 +54,4 @@ function Movies() {
   );
 }
 
-export default Movies;
+export default TvSeries;

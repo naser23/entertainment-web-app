@@ -2,10 +2,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { MovieApiProvider } from "./context/MovieApiContext";
 import Navbar from "./components/Navbar/Navbar";
 import NavbarRoute from "./components/NavbarRoute";
-import Home from "./pages/home/Home";
+import Home from "./pages/Home";
 import Bookmarked from "./pages/Bookmarked/Bookmarked";
-import Movies from "./pages/Movies/Movies";
-import TvSeries from "./pages/TV-Series/TvSeries";
+import Movies from "./pages/Movies";
+import TvSeries from "./pages/TvSeries";
 import LogIn from "./pages/LogIn/LogIn";
 import SignUp from "./pages/SignUp/SignUp";
 
