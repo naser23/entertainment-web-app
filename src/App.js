@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { MovieApiProvider } from "./context/MovieApiContext";
 import Navbar from "./components/Navbar/Navbar";
+import SearchResults from "./pages/SearchResults";
 import NavbarRoute from "./components/NavbarRoute";
 import Home from "./pages/Home";
 import Bookmarked from "./pages/Bookmarked/Bookmarked";
@@ -29,6 +30,11 @@ function App() {
           <Route path="/bookmarked" element={<NavbarRoute />}>
             <Route path="/bookmarked" element={<Bookmarked />}></Route>
           </Route>
+          <Route path="/results" element={<NavbarRoute />}>
+            <Route path="/results" element={<SearchResults />}></Route>
+          </Route>
+
+          <Route path="/results" element={<SearchResults />}></Route>
 
           <Route path="/log-in" element={<LogIn />}></Route>
           <Route path="/sign-up" element={<SignUp />}></Route>

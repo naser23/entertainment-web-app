@@ -2,11 +2,13 @@ import React from "react";
 import SearchIcon from "../../assets/icon-search.svg";
 import MovieApiContext from "../../context/MovieApiContext";
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { jsonData } from "../../data";
 
 function SearchBar() {
   const [text, setText] = useState("");
-  const [results, setResults] = useState([]);
+  const { resultsData } = useContext(MovieApiContext);
+  const navigate = useNavigate();
 
   function onSubmit(e) {
     e.preventDefault();
@@ -15,23 +17,14 @@ function SearchBar() {
       alert("Please type something");
       console.log("Please type something");
     } else {
-      // clear the results array before searching
-      setResults([]);
-
-      // filtering out the data based on the text state
-      setResults(
-        jsonData.filter((jsonData) =>
-          jsonData.title.toLowerCase().includes(text.toLowerCase())
-        )
-      );
-      console.log(results);
+      resultsData(text);
+      navigate("/results");
       setText("");
     }
   }
 
   function onChange(e) {
     setText(e.target.value);
-    console.log(text);
   }
 
   return (
