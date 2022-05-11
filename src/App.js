@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import SearchResults from "./pages/SearchResults";
 import NavbarRoute from "./components/NavbarRoute";
 import Home from "./pages/Home";
-import Bookmarked from "./pages/Bookmarked/Bookmarked";
+import Bookmarked from "./pages/Bookmarked";
 import Movies from "./pages/Movies";
 import TvSeries from "./pages/TvSeries";
 import LogIn from "./pages/LogIn/LogIn";

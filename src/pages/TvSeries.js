@@ -23,7 +23,12 @@ function TvSeries() {
                   />
 
                   <button className="mediaBookmarkButton">
-                    <img src={BookmarkIconEmpty} alt="Bookmark Icon" />
+                    <img
+                      src={
+                        item.isBookmarked ? BookmarkIconFull : BookmarkIconEmpty
+                      }
+                      alt="Bookmark Icon"
+                    />
                   </button>
                   <div className="mediaItemFacts">
                     <p>{item.year}</p>
