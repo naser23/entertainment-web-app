@@ -29,7 +29,7 @@ function Navbar() {
           </li>
         </ul>
 
-        <button className="avatarImgButton">
+        <button className="avatarImgButton" onClick={() => navigate("/log-in")}>
           <img className="avatarImg" src={ImageAvatar} alt="image avatar" />
         </button>
       </nav>

@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { jsonData } from "../data";
 
 const MovieApiContext = createContext();
@@ -8,24 +8,36 @@ export function MovieApiProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
 
+  // const settings = {
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     Accept: "application/json",
+  //   },
+  // };
   const settings = {
     headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
+      METHOD: "GET",
     },
   };
 
   async function getData() {
     try {
       setLoading(true);
-      const response = await fetch(`data.json`, settings);
+      const response = await fetch(
+        "https://www.omdbapi.com/?apikey=9b53d99e&s=batman"
+      );
       const result = await response.json();
+      console.log(result);
       setLoading(false);
       return setData(result);
     } catch (error) {
       console.log(error);
     }
   }
+
+  useEffect(() => {
+    // getData();
+  }, []);
 
   function resultsData(text) {
     // clear the results array before searching

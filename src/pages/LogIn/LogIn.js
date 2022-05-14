@@ -1,10 +1,38 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Logo from "../../components/Logo/Logo";
 
 function LogIn() {
-  function onSubmit(e) {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { email, password } = formData;
+
+  function onChange(e) {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }));
+  }
+
+  async function onSubmit(e) {
     e.preventDefault();
+
+    try {
+      const auth = getAuth();
+      console.log(auth);
+      console.log("fuck firebase");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  function fuckingGetAuthNigga() {
+    const auth = getAuth();
+    console.log(auth);
   }
 
   return (
@@ -19,12 +47,16 @@ function LogIn() {
           <input
             className="input"
             type="text"
+            value={email}
+            onChange={onChange}
             id="email"
             placeholder="Email Address"
           />
           <input
             className="input"
-            type="text"
+            type="password"
+            value={password}
+            onChange={onChange}
             id="password"
             placeholder="Password"
           />
