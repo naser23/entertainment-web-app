@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { app, db } from "../../firebase.config";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Logo from "../../components/Logo/Logo";
 
@@ -23,8 +24,8 @@ function LogIn() {
   async function onSubmit(e) {
     e.preventDefault();
 
+    const auth = getAuth(app);
     try {
-      const auth = getAuth();
       const userCredential = signInWithEmailAndPassword({
         email,
         password,
@@ -40,10 +41,10 @@ function LogIn() {
     }
   }
 
-  function fuckingGetAuthNigga() {
-    const auth = getAuth();
-    console.log(auth);
-  }
+  // function fuckingGetAuthNigga() {
+  //   const auth = getAuth();
+  //   console.log(auth);
+  // }
 
   return (
     <div className="logIn">
