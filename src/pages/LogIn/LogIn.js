@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Logo from "../../components/Logo/Logo";
 
 function LogIn() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -23,8 +25,16 @@ function LogIn() {
 
     try {
       const auth = getAuth();
+      const userCredential = signInWithEmailAndPassword({
+        email,
+        password,
+      });
       console.log(auth);
-      console.log("fuck firebase");
+
+      // if (userCredential.user) {
+      //   console.log("Signed In!");
+      //   navigate("/");
+      // }
     } catch (error) {
       console.error(error);
     }

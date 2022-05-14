@@ -1,17 +1,20 @@
 // Import the functions you need from the SDKs you need
+
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAnalytics } from "firebase/analytics";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBxqmbRImT75Khn9fkULXXdsI_i-eGJFlA",
-  authDomain: "entertainment-web-app-a703c.firebaseapp.com",
-  projectId: "entertainment-web-app-a703c",
-  storageBucket: "entertainment-web-app-a703c.appspot.com",
-  messagingSenderId: "193370465127",
-  appId: "1:193370465127:web:5ae34aaac1c69dff4045c2",
+  apiKey: "AIzaSyCH7DqbFyZn8k89JXqZIUOL-fgVSRslCoI",
+  authDomain: "entertainment-web-app-f5a27.firebaseapp.com",
+  projectId: "entertainment-web-app-f5a27",
+  storageBucket: "entertainment-web-app-f5a27.appspot.com",
+  messagingSenderId: "144112247635",
+  appId: "1:144112247635:web:0817ab684a17df2a42f7a6",
+  measurementId: "G-9NGK9SHLMB",
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-export const db = getFirestore();
+const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
+export const db = getFirestore(app);
