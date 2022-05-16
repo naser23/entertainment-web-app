@@ -3,12 +3,14 @@ import { MovieApiProvider } from "./context/MovieApiContext";
 import Navbar from "./components/Navbar/Navbar";
 import SearchResults from "./pages/SearchResults";
 import NavbarRoute from "./components/NavbarRoute";
+import ProfileRoute from "./components/ProfileRoute";
 import Home from "./pages/Home";
 import Bookmarked from "./pages/Bookmarked";
 import Movies from "./pages/Movies";
 import TvSeries from "./pages/TvSeries";
 import LogIn from "./pages/LogIn/LogIn";
 import SignUp from "./pages/SignUp/SignUp";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -38,6 +40,10 @@ function App() {
 
           <Route path="/log-in" element={<LogIn />}></Route>
           <Route path="/sign-up" element={<SignUp />}></Route>
+
+          <Route path="/profile" element={<ProfileRoute />}>
+            <Route path="/profile" element={<Profile />}></Route>
+          </Route>
         </Routes>
       </Router>
     </MovieApiProvider>

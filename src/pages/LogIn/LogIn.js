@@ -24,18 +24,19 @@ function LogIn() {
   async function onSubmit(e) {
     e.preventDefault();
 
-    const auth = getAuth(app);
+    const auth = getAuth();
     try {
-      const userCredential = signInWithEmailAndPassword({
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
         email,
-        password,
-      });
-      console.log(auth);
+        password
+      );
+      console.log(userCredential.user);
 
-      // if (userCredential.user) {
-      //   console.log("Signed In!");
-      //   navigate("/");
-      // }
+      if (userCredential.user) {
+        console.log("Signed In!");
+        navigate("/");
+      }
     } catch (error) {
       console.error(error);
     }

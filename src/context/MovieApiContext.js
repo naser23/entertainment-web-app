@@ -7,6 +7,7 @@ export function MovieApiProvider({ children }) {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   // const settings = {
   //   headers: {

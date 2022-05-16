@@ -29,7 +29,10 @@ function Navbar() {
           </li>
         </ul>
 
-        <button className="avatarImgButton" onClick={() => navigate("/log-in")}>
+        <button
+          className="avatarImgButton"
+          onClick={() => navigate("/profile")}
+        >
           <img className="avatarImg" src={ImageAvatar} alt="image avatar" />
         </button>
       </nav>

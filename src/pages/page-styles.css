@@ -8,6 +8,7 @@
 .header {
   padding-bottom: 1rem;
   font-weight: 300;
+  color: white;
 }
 
 @media (min-width: 567.98px) {
