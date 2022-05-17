@@ -1,13 +1,14 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuthStatus } from "../hooks/useAuthStatus";
+import Loading from "./Loading";
 
 function ProfileRoute() {
   const { loggedIn, checkingStatus } = useAuthStatus();
 
   if (checkingStatus) {
     console.log("Checking for user");
-    return <h1 className="header">Loading...</h1>;
+    return <Loading />;
   }
 
   return loggedIn ? <Outlet /> : <Navigate to="/log-in" />;

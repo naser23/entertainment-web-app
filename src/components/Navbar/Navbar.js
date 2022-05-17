@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuthStatus } from "../../hooks/useAuthStatus";
 import Logo from "../Logo/Logo";
 import ImageAvatar from "../../assets/image-avatar.png";
 import TvLogoNav from "../../assets/icon-nav-tv-series.svg";
@@ -9,6 +10,7 @@ import HomeLogoNav from "../../assets/icon-nav-home.svg";
 
 function Navbar() {
   const navigate = useNavigate();
+  const { loggedIn, checkingStatus } = useAuthStatus();
 
   return (
     <>
@@ -33,8 +35,11 @@ function Navbar() {
           className="avatarImgButton"
           onClick={() => navigate("/profile")}
         >
-          {/* <img className="avatarImg" src={ImageAvatar} alt="image avatar" /> */}
-          <p className="profileImg">P</p>
+          {loggedIn ? (
+            <img className="avatarImg" src={ImageAvatar} alt="image avatar" />
+          ) : (
+            <p className="profileImg">P</p>
+          )}
         </button>
       </nav>
     </>

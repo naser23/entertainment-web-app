@@ -24,8 +24,8 @@ function LogIn() {
   async function onSubmit(e) {
     e.preventDefault();
 
-    const auth = getAuth();
     try {
+      const auth = getAuth();
       const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
@@ -39,6 +39,7 @@ function LogIn() {
       }
     } catch (error) {
       console.error(error);
+      console.log("Wrong info");
     }
   }
 
