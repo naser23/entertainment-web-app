@@ -33,7 +33,8 @@ function Navbar() {
           className="avatarImgButton"
           onClick={() => navigate("/profile")}
         >
-          <img className="avatarImg" src={ImageAvatar} alt="image avatar" />
+          {/* <img className="avatarImg" src={ImageAvatar} alt="image avatar" /> */}
+          <p className="profileImg">P</p>
         </button>
       </nav>
     </>

@@ -29,6 +29,19 @@
   border-radius: 20px;
 }
 
+.profileImg {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid white;
+  border-radius: 20px;
+  background: gray;
+  font-size: 1rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 567.98px) {
 }
 
