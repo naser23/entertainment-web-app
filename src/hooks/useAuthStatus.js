@@ -17,7 +17,6 @@ export function useAuthStatus() {
       }
       setCheckingStatus(false);
     });
-    console.log(loggedIn);
   });
 
   return { loggedIn, setLoggedIn, checkingStatus };

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Navigate } from "react-router-dom";
 import Logo from "../../components/Logo/Logo";
+import Loading from "../../components/Loading/Loading";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { app, db } from "../../firebase.config";
@@ -9,6 +10,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   updateProfile,
+  sendEmailVerification,
 } from "firebase/auth";
 import { useAuthStatus } from "../../hooks/useAuthStatus";
 
@@ -57,8 +59,21 @@ function SignUp() {
 
         formDataCopy.timestamp = serverTimestamp();
 
-        await setDoc(doc(db, "users", user.uid), formDataCopy);
-        navigate("/");
+        sendEmailVerification(auth.currentUser)
+          .then(() => {
+            console.log("verification email sent.");
+            // navigate("/verify-email");
+          })
+          .catch(function (error) {
+            console.error(error);
+          });
+        const emailVerified = user.emailVerified;
+        console.log(user.emailVerified);
+
+        // if (emailVerified) {
+        // await setDoc(doc(db, "users", user.uid), formDataCopy);
+        //   navigate("/");
+        // }
       } else {
         alert("Passwords do not match");
       }

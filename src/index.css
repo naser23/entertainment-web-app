@@ -7,6 +7,7 @@
 @import "./components/SearchBar/searchbar.css";
 @import "./components/TrendingBar/trendingbar.css";
 @import "./components/Recommended/recommended.css";
+@import "./components/Loading/loading.css";
 
 body {
   margin: 0;
