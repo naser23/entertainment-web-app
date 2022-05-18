@@ -7,7 +7,7 @@ function Profile() {
   const auth = getAuth();
   const user = auth.currentUser;
   const navigate = useNavigate();
-  const { loggedIn, checkingStatus } = useAuthStatus();
+  const { loggedIn, setLoggedIn, checkingStatus } = useAuthStatus();
 
   function onClick() {
     auth.signOut();

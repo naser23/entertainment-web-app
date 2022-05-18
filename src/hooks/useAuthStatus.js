@@ -11,10 +11,14 @@ export function useAuthStatus() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setLoggedIn(true);
+      } else {
+        // if user isn't loggedIn or logs out
+        setLoggedIn(false);
       }
       setCheckingStatus(false);
     });
+    console.log(loggedIn);
   });
 
-  return { loggedIn, checkingStatus };
+  return { loggedIn, setLoggedIn, checkingStatus };
 }

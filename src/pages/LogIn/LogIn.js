@@ -31,7 +31,6 @@ function LogIn() {
         email,
         password
       );
-      console.log(userCredential.user);
 
       if (userCredential.user) {
         console.log("Signed In!");
