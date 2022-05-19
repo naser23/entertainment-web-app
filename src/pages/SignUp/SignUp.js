@@ -59,21 +59,20 @@ function SignUp() {
 
         formDataCopy.timestamp = serverTimestamp();
 
-        sendEmailVerification(auth.currentUser)
-          .then(() => {
-            console.log("verification email sent.");
-            // navigate("/verify-email");
-          })
-          .catch(function (error) {
-            console.error(error);
-          });
-        const emailVerified = user.emailVerified;
-        console.log(user.emailVerified);
+        // navigating to verify email page while we wait for user to verify email.
+        navigate("/verify-email");
 
-        // if (emailVerified) {
-        // await setDoc(doc(db, "users", user.uid), formDataCopy);
-        //   navigate("/");
-        // }
+        await sendEmailVerification(auth.currentUser);
+
+        let interval = setInterval(async () => {
+          // this function will keep being called until user.emailVerified is true.
+          if (user.emailVerified) {
+            // this will clear the interval and the funciton will stop being called.
+            clearInterval(interval);
+            navigate("/");
+          }
+          await userCredential.user.reload();
+        }, 1000);
       } else {
         alert("Passwords do not match");
       }
