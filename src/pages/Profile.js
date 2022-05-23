@@ -15,12 +15,19 @@ function Profile() {
   }
 
   return (
-    <>
+    <main className="profileContainer">
       <h1 className="header">Hello {user.displayName}</h1>
-      <button className="finishLogIn" onClick={onClick}>
+      <section className="userInfo">
+        <h3 className="userInfoHeader">Personal info:</h3>
+        <div className="userInfoText">
+          <h4>{user.displayName}</h4>
+          <h4>{user.email}</h4>
+        </div>
+      </section>
+      <button className="logOut" onClick={onClick}>
         Log Out
       </button>
-    </>
+    </main>
   );
 }
 

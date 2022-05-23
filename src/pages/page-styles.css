@@ -1,3 +1,5 @@
+/* @import "../config.css"; */
+
 .pageContainer {
   width: 100%;
   overflow-x: hidden;
@@ -11,10 +13,54 @@
   color: white;
 }
 
+/* // Profile page stylings */
+.profileContainer {
+  width: 100%;
+  padding: 2rem;
+  color: white;
+}
+
+.userInfoHeader {
+  padding-bottom: 1rem;
+}
+
+.userInfoText {
+  padding: 1rem;
+  background-color: var(--dark-lightish-gray);
+}
+
+h4 {
+  padding: 0.25rem 0;
+}
+.logOut {
+  width: 100%;
+  height: 3rem;
+  text-align: center;
+  font-size: 1rem;
+  background-color: var(--main-orange-color);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  margin: 1rem 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.logOut:hover {
+  cursor: pointer;
+  color: var(--main-bg-color);
+  background-color: white;
+}
+
 @media (min-width: 567.98px) {
+  .logOut {
+    width: 12rem;
+  }
 }
 
 @media (min-width: 767.98px) {
+  .profileContainer {
+    padding: 2rem 6rem;
+  }
 }
 
 @media (min-width: 991.98px) {
@@ -23,6 +69,10 @@
     /* height: 100vh; */
     padding-left: 12%;
     padding-top: 7.5%;
+  }
+
+  .profileContainer {
+    padding: 2rem 10rem;
   }
 }
 
@@ -33,5 +83,9 @@
 @media (min-width: 1199.98px) {
   .pageContainer {
     padding-left: 10%;
+  }
+
+  .profileContainer {
+    padding: 2rem 12rem;
   }
 }

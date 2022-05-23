@@ -71,13 +71,15 @@ function SignUp() {
           if (user.emailVerified) {
             // this will clear the interval and the funciton will stop being called.
             clearInterval(interval);
+            // adds user to the firestore doc
             await setDoc(doc(db, "users", user.uid), formDataCopy);
+            toast.success("Email verified!");
             navigate("/");
           }
           await userCredential.user.reload();
         }, 1000);
       } else {
-        alert("Passwords do not match");
+        toast.error("Passwords do not match");
       }
     } catch (error) {
       console.error(error);
