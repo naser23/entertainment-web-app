@@ -32,9 +32,12 @@ function LogIn() {
         password
       );
 
-      if (userCredential.user) {
+      if (userCredential.user && userCredential.user.emailVerified) {
         console.log("Signed In!");
         navigate("/");
+      } else {
+        // need to make error messages when login or sign up fails.
+        console.log("Cant sign you in.");
       }
     } catch (error) {
       console.error(error);

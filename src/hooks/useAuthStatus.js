@@ -9,7 +9,8 @@ export function useAuthStatus() {
   useEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
-      if (user) {
+      // make sure there is a user and their email is verified.
+      if (user && user.emailVerified) {
         setLoggedIn(true);
       } else {
         // if user isn't loggedIn or logs out
