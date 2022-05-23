@@ -1,13 +1,5 @@
 @import "./config.css";
 @import "./pages/page-styles.css";
-@import "./pages/LogIn/login.css";
-@import "./pages/SignUp/signup.css";
-@import "./components/Navbar/navbar.css";
-@import "./components/Logo/logo.css";
-@import "./components/SearchBar/searchbar.css";
-@import "./components/TrendingBar/trendingbar.css";
-@import "./components/Recommended/recommended.css";
-@import "./components/Loading/loading.css";
 
 body {
   margin: 0;

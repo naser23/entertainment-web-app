@@ -5,6 +5,7 @@ import { app, db } from "../../firebase.config";
 import { toast } from "react-toastify";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Logo from "../../components/Logo/Logo";
+import "../LogIn/login.css";
 
 function LogIn() {
   const navigate = useNavigate();

@@ -2,6 +2,7 @@ import React from "react";
 import SonicLoading from "../../assets/sonicLoading.gif";
 import { useNavigate } from "react-router-dom";
 import { getAuth, sendEmailVerification } from "firebase/auth";
+import "../Loading/loading.css";
 
 function Loading() {
   const auth = getAuth();

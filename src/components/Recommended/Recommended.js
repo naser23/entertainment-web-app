@@ -5,6 +5,7 @@ import MovieIcon from "../../assets/icon-category-movie.svg";
 import TvIcon from "../../assets/icon-category-tv.svg";
 import PlayIcon from "../../assets/icon-play.svg";
 import { jsonData } from "../../data";
+import "../Recommended/recommended.css";
 
 function Recommended() {
   return (

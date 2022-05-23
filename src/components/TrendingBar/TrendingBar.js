@@ -7,6 +7,7 @@ import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
 import BookmarkIconFull from "../../assets/icon-bookmark-full.svg";
 import MovieIcon from "../../assets/icon-category-movie.svg";
 import TvIcon from "../../assets/icon-category-tv.svg";
+import "../TrendingBar/trendingbar.css";
 
 function TrendingBar() {
   const [trending, setTrending] = useState([]);

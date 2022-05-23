@@ -7,6 +7,7 @@ import TvLogoNav from "../../assets/icon-nav-tv-series.svg";
 import MovieLogoNav from "../../assets/icon-nav-movies.svg";
 import BookmarkLogoNav from "../../assets/icon-nav-bookmark.svg";
 import HomeLogoNav from "../../assets/icon-nav-home.svg";
+import "../Navbar/navbar.css";
 
 function Navbar() {
   const navigate = useNavigate();

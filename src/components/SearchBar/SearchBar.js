@@ -4,6 +4,7 @@ import MovieApiContext from "../../context/MovieApiContext";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { jsonData } from "../../data";
+import "../SearchBar/searchbar.css";
 
 function SearchBar() {
   const [text, setText] = useState("");

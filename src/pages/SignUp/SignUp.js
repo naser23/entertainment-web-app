@@ -1,9 +1,9 @@
 import React from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../../components/Logo/Logo";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { app, db } from "../../firebase.config";
+import { db } from "../../firebase.config";
 import { setDoc, doc, serverTimestamp, updateDoc } from "firebase/firestore";
 import {
   getAuth,
@@ -14,6 +14,7 @@ import {
 import { useAuthStatus } from "../../hooks/useAuthStatus";
 import { toast } from "react-toastify";
 import Loading from "../../components/Loading/Loading";
+import "../SignUp/signup.css";
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -70,6 +71,7 @@ function SignUp() {
           if (user.emailVerified) {
             // this will clear the interval and the funciton will stop being called.
             clearInterval(interval);
+            await setDoc(doc(db, "users", user.uid), formDataCopy);
             navigate("/");
           }
           await userCredential.user.reload();
