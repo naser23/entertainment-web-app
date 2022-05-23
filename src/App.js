@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { MovieApiProvider } from "./context/MovieApiContext";
 import Navbar from "./components/Navbar/Navbar";
 import SearchResults from "./pages/SearchResults";
@@ -36,7 +38,6 @@ function App() {
           <Route path="/results" element={<NavbarRoute />}>
             <Route path="/results" element={<SearchResults />}></Route>
           </Route>
-
           <Route path="/results" element={<SearchResults />}></Route>
 
           <Route path="/log-in" element={<LogIn />}></Route>
@@ -48,6 +49,8 @@ function App() {
           </Route>
         </Routes>
       </Router>
+
+      <ToastContainer />
     </MovieApiProvider>
   );
 }

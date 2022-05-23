@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, Navigate } from "react-router-dom";
 import Logo from "../../components/Logo/Logo";
-import Loading from "../../components/Loading/Loading";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { app, db } from "../../firebase.config";
@@ -13,6 +12,8 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 import { useAuthStatus } from "../../hooks/useAuthStatus";
+import { toast } from "react-toastify";
+import Loading from "../../components/Loading/Loading";
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -78,7 +79,7 @@ function SignUp() {
       }
     } catch (error) {
       console.error(error);
-      console.log("Something went wrong with registration");
+      toast.error("Something went wrong with registration");
     }
   }
 

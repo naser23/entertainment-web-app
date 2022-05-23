@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { app, db } from "../../firebase.config";
+import { toast } from "react-toastify";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Logo from "../../components/Logo/Logo";
 
@@ -33,22 +34,17 @@ function LogIn() {
       );
 
       if (userCredential.user && userCredential.user.emailVerified) {
-        console.log("Signed In!");
+        toast.success("Signed In!");
         navigate("/");
-      } else {
+      } else if (userCredential.user && !userCredential.user.emailVerified) {
         // need to make error messages when login or sign up fails.
-        console.log("Cant sign you in.");
+        toast.error("Please verify your email.");
       }
     } catch (error) {
       console.error(error);
-      console.log("Wrong info");
+      toast.error("Wrong info");
     }
   }
-
-  // function fuckingGetAuthNigga() {
-  //   const auth = getAuth();
-  //   console.log(auth);
-  // }
 
   return (
     <div className="logIn">
