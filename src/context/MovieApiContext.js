@@ -29,7 +29,6 @@ export function MovieApiProvider({ children }) {
         `https://api.themoviedb.org/3/search/multi?api_key=7666a18c935f4f574785edd530e93698&${params}`
       );
       const result = await response.json();
-      console.log(result);
       setLoading(false);
       return setData(result);
     } catch (error) {

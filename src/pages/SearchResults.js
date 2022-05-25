@@ -9,9 +9,9 @@ import { useContext } from "react";
 import { jsonData } from "../data";
 
 function SearchResults() {
-  const { results } = useContext(MovieApiContext);
+  const { data, results } = useContext(MovieApiContext);
 
-  if (results && results.length == 0) {
+  if (data && data.results.length == 0) {
     return (
       <main className="pageContainer">
         <h1 className="header">Results for Search</h1>
@@ -25,32 +25,38 @@ function SearchResults() {
       <main className="pageContainer">
         <h1 className="header">Results for Search</h1>
         <ul className="mediaContainer">
-          {results &&
-            results.map((item) => (
-              <li className="mediaItem" key={jsonData.indexOf(item)}>
+          {data &&
+            data.results.map((item) => (
+              <li className="mediaItem" key={item.id}>
                 <img
                   className="img"
-                  src={item.thumbnail.regular.large}
-                  alt={item.category === "Movie" ? "Movie Icon" : "Tv Icon"}
+                  src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
+                  alt={item.media_type === "movie" ? "Movie Icon" : "Tv Icon"}
                 />
 
                 <button className="mediaBookmarkButton">
                   <img src={BookmarkIconEmpty} alt="Bookmark Icon" />
                 </button>
                 <div className="mediaItemFacts">
-                  <p>{item.year}</p>
+                  <p>
+                    {item.media_type == "movie"
+                      ? item.release_date
+                      : item.first_air_date}
+                  </p>
                   <div className="smallCircle"></div>
                   <span className="itemCategory">
                     <img
-                      src={item.category === "Movie" ? MovieIcon : TvIcon}
+                      src={item.media_type === "movie" ? MovieIcon : TvIcon}
                       alt="Media Type Icon"
                     />
                     <p>{item.category}</p>
                   </span>
                   <div className="smallCircle"></div>
-                  <p>{item.rating}</p>
+                  <p>{item.vote_average}</p>
                 </div>
-                <h3 className="mediaTitle">{item.title}</h3>
+                <h3 className="mediaTitle">
+                  {item.media_type == "movie" ? item.title : item.name}
+                </h3>
                 <div className="playButtonContainer">
                   <div className="playButton">
                     <img src={PlayIcon} alt="Play-icon" />
