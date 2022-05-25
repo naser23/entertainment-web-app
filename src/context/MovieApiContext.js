@@ -21,11 +21,12 @@ export function MovieApiProvider({ children }) {
     },
   };
 
-  async function getData() {
+  async function getData(text) {
     try {
       setLoading(true);
+      const params = new URLSearchParams({ query: text });
       const response = await fetch(
-        "https://www.omdbapi.com/?apikey=9b53d99e&s=batman"
+        `https://api.themoviedb.org/3/search/multi?api_key=7666a18c935f4f574785edd530e93698&${params}`
       );
       const result = await response.json();
       console.log(result);

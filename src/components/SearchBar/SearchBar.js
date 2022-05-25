@@ -8,7 +8,7 @@ import "../SearchBar/searchbar.css";
 
 function SearchBar() {
   const [text, setText] = useState("");
-  const { resultsData } = useContext(MovieApiContext);
+  const { getData, resultsData } = useContext(MovieApiContext);
   const navigate = useNavigate();
 
   function onSubmit(e) {
@@ -18,6 +18,7 @@ function SearchBar() {
       alert("Please type something");
       console.log("Please type something");
     } else {
+      getData(text);
       resultsData(text);
       navigate("/results");
       setText("");
