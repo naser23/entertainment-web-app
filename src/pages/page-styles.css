@@ -5,12 +5,50 @@
   overflow-x: hidden;
   color: white;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .header {
   padding-bottom: 1rem;
   font-weight: 300;
   color: white;
+}
+
+/* // change page results button // */
+.changePageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  background-color: var(--dark-lightish-gray);
+}
+
+/* .prevPage {
+}
+
+.nextPage {
+} */
+
+.prevPage,
+.nextPage {
+  height: 100%;
+  background: none;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.1s ease-in-out;
+}
+
+.prevPage:hover,
+.nextPage:hover {
+  background-color: white;
+  color: var(--dark-lightish-gray);
 }
 
 /* // Profile page stylings */

@@ -9,7 +9,9 @@ import { useContext } from "react";
 import { jsonData } from "../data";
 
 function SearchResults() {
-  const { data, results } = useContext(MovieApiContext);
+  const { data, getData, pageNumber, setPageNumber } =
+    useContext(MovieApiContext);
+  data && console.log(pageNumber, data.total_pages);
 
   if (data && data.results.length == 0) {
     return (
@@ -18,6 +20,18 @@ function SearchResults() {
         <p>No Results...</p>
       </main>
     );
+  }
+
+  function upOnePage() {
+    if (pageNumber >= 1 && pageNumber < data.total_pages) {
+      setPageNumber(pageNumber + 1);
+    }
+  }
+
+  function downOnePage() {
+    if (pageNumber > 1 && pageNumber <= data.total_pages) {
+      setPageNumber(pageNumber - 1);
+    }
   }
 
   return (
@@ -66,6 +80,17 @@ function SearchResults() {
               </li>
             ))}
         </ul>
+        <div className="changePageContainer">
+          <button className="prevPage" onClick={downOnePage}>
+            Prev Page
+          </button>
+          <div className="currentPage">
+            Page {pageNumber} of {data && data.total_pages}
+          </div>
+          <button className="nextPage" onClick={upOnePage}>
+            Next Page
+          </button>
+        </div>
       </main>
     </>
   );

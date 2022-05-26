@@ -6,8 +6,7 @@ const MovieApiContext = createContext();
 export function MovieApiProvider({ children }) {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
-  const [results, setResults] = useState([]);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [pageNumber, setPageNumber] = useState(1);
 
   // const settings = {
   //   headers: {
@@ -26,7 +25,7 @@ export function MovieApiProvider({ children }) {
       setLoading(true);
       const params = new URLSearchParams({ query: text });
       const response = await fetch(
-        `https://api.themoviedb.org/3/search/multi?api_key=7666a18c935f4f574785edd530e93698&${params}`
+        `https://api.themoviedb.org/3/search/multi?api_key=7666a18c935f4f574785edd530e93698&${params}&page=${pageNumber}`
       );
       const result = await response.json();
       setLoading(false);
@@ -36,25 +35,21 @@ export function MovieApiProvider({ children }) {
     }
   }
 
-  useEffect(() => {
-    // getData();
-  }, []);
+  // function resultsData(text) {
+  //   // clear the results array before searching
+  //   setResults([]);
 
-  function resultsData(text) {
-    // clear the results array before searching
-    setResults([]);
-
-    // filtering out the data based on the text state
-    setResults(
-      jsonData.filter((jsonData) =>
-        jsonData.title.toLowerCase().includes(text.toLowerCase())
-      )
-    );
-  }
+  //   // filtering out the data based on the text state
+  //   setResults(
+  //     jsonData.filter((jsonData) =>
+  //       jsonData.title.toLowerCase().includes(text.toLowerCase())
+  //     )
+  //   );
+  // }
 
   return (
     <MovieApiContext.Provider
-      value={{ data, loading, results, setLoading, getData, resultsData }}
+      value={{ data, loading, pageNumber, setLoading, getData, setPageNumber }}
     >
       {children}
     </MovieApiContext.Provider>

@@ -40,6 +40,7 @@ function SignUp() {
     try {
       // getting user authentication object
       const auth = getAuth();
+      // console.log(auth.currentUser.email);
 
       // checking if both passwords are the same before creating user
       if (repeatPassword === password) {

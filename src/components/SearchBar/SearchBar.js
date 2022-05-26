@@ -19,7 +19,6 @@ function SearchBar() {
       console.log("Please type something");
     } else {
       getData(text);
-      resultsData(text);
       navigate("/results");
       setText("");
     }
