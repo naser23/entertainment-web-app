@@ -7,11 +7,15 @@ import PlayIcon from "../assets/icon-play.svg";
 import MovieApiContext from "../context/MovieApiContext";
 import { useContext } from "react";
 import { jsonData } from "../data";
+import { useEffect } from "react";
 
 function SearchResults() {
-  const { data, getData, pageNumber, setPageNumber } =
+  const { data, pageNumber, queryThroughPages, setPageNumber } =
     useContext(MovieApiContext);
-  data && console.log(pageNumber, data.total_pages);
+
+  useEffect(() => {
+    queryThroughPages();
+  }, [pageNumber]);
 
   if (data && data.results.length == 0) {
     return (
@@ -24,13 +28,16 @@ function SearchResults() {
 
   function upOnePage() {
     if (pageNumber >= 1 && pageNumber < data.total_pages) {
-      setPageNumber(pageNumber + 1);
+      setPageNumber((prevState) => prevState + 1);
+      console.log(pageNumber);
+      // queryThroughPages();
     }
   }
 
   function downOnePage() {
     if (pageNumber > 1 && pageNumber <= data.total_pages) {
-      setPageNumber(pageNumber - 1);
+      setPageNumber((prevState) => prevState - 1);
+      console.log(pageNumber);
     }
   }
 
@@ -80,17 +87,20 @@ function SearchResults() {
               </li>
             ))}
         </ul>
-        <div className="changePageContainer">
-          <button className="prevPage" onClick={downOnePage}>
-            Prev Page
-          </button>
-          <div className="currentPage">
-            Page {pageNumber} of {data && data.total_pages}
+
+        {data && (
+          <div className="changePageContainer">
+            <button className="prevPage" onClick={downOnePage}>
+              Prev Page
+            </button>
+            <div className="currentPage">
+              Page {pageNumber} of {data && data.total_pages}
+            </div>
+            <button className="nextPage" onClick={upOnePage}>
+              Next Page
+            </button>
           </div>
-          <button className="nextPage" onClick={upOnePage}>
-            Next Page
-          </button>
-        </div>
+        )}
       </main>
     </>
   );
