@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useContext } from "react";
-import { useEffect } from "react";
 import MovieApiContext from "../../context/MovieApiContext";
 import { jsonData } from "../../data";
 import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
@@ -11,12 +10,9 @@ import "../TrendingBar/trendingbar.css";
 
 function TrendingBar() {
   const [trending, setTrending] = useState([]);
-  const { data, loading, getData } = useContext(MovieApiContext);
+  const { data, loading, trendingData } = useContext(MovieApiContext);
 
-  // useEffect(() => {
-  //   // getData();
-  //   // data && data.map((item) => item.isTrending && console.log(item.thumbnail));
-  // }, []);
+  trendingData && console.log(trendingData);
 
   return (
     <div className="trendingBar">
@@ -25,47 +21,48 @@ function TrendingBar() {
         <h1>Loading...</h1>
       ) : (
         <ul className="trendingItemContainer">
-          {jsonData &&
-            jsonData.map(
-              (item) =>
-                item.isTrending && (
-                  <li
-                    key={jsonData.indexOf(item)}
-                    className="trendingItem"
-                    style={{
-                      backgroundImage: `url(${item.thumbnail.regular.large})`,
-                    }}
-                  >
-                    <button className="BookmarkButton">
+          {trendingData &&
+            trendingData.results.map((item) => (
+              <li
+                key={item.id}
+                className="trendingItem"
+                style={{
+                  backgroundImage: `url(https://image.tmdb.org/t/p/original/${item.poster_path})`,
+                }}
+              >
+                <button className="BookmarkButton">
+                  <img
+                    src={
+                      item.isBookmarked ? BookmarkIconFull : BookmarkIconEmpty
+                    }
+                    alt="Bookmark Icon"
+                  />
+                </button>
+                <section className="trendingItemInfo">
+                  <div className="itemFacts">
+                    <p>
+                      {item.media_type == "movie"
+                        ? item.release_date
+                        : item.first_air_date}
+                    </p>
+                    <div className="smallCircle"></div>
+                    <span className="itemCategory">
                       <img
-                        src={
-                          item.isBookmarked
-                            ? BookmarkIconFull
-                            : BookmarkIconEmpty
-                        }
-                        alt="Bookmark Icon"
+                        src={item.media_type === "movie" ? MovieIcon : TvIcon}
+                        alt="Media Type Icon"
                       />
-                    </button>
-                    <section className="trendingItemInfo">
-                      <div className="itemFacts">
-                        <p>{item.year}</p>
-                        <div className="smallCircle"></div>
-                        <span className="itemCategory">
-                          <img
-                            src={item.category === "Movie" ? MovieIcon : TvIcon}
-                            alt="Media Type Icon"
-                          />
-                          <p>{item.category}</p>
-                        </span>
-                        <div className="smallCircle"></div>
-                        <p>{item.rating}</p>
-                      </div>
+                      <p>{}</p>
+                    </span>
+                    <div className="smallCircle"></div>
+                    <p>{item.vote_average}</p>
+                  </div>
 
-                      <h3 className="trendingMediaTitle">{item.title}</h3>
-                    </section>
-                  </li>
-                )
-            )}
+                  <h3 className="trendingMediaTitle">
+                    {item.media_type == "movie" ? item.title : item.name}
+                  </h3>
+                </section>
+              </li>
+            ))}
         </ul>
       )}
     </div>

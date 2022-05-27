@@ -1,11 +1,13 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import { jsonData } from "../data";
+import { useEffect } from "react";
 
 const MovieApiContext = createContext();
 
 export function MovieApiProvider({ children }) {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
+  const [trendingData, setTrendingData] = useState();
   const [pageQuery, setPageQuery] = useState();
   const [pageNumber, setPageNumber] = useState(1);
   // const settings = {
@@ -37,21 +39,36 @@ export function MovieApiProvider({ children }) {
     }
   }
 
-  async function queryThroughPages() {
+  async function getTrendingData() {
     try {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/search/multi?api_key=7666a18c935f4f574785edd530e93698&${pageQuery}&page=${pageNumber}`
+      setLoading(true);
+      const resp = await fetch(
+        "https://api.themoviedb.org/3/trending/all/week?api_key=7666a18c935f4f574785edd530e93698"
       );
-      console.log(
-        `https://api.themoviedb.org/3/search/multi?api_key=7666a18c935f4f574785edd530e93698&${pageQuery}&page=${pageNumber}`
-      );
-      const result = await response.json();
-      console.log(result);
-      return setData(result);
+      const result = await resp.json();
+      setLoading(false);
+      return setTrendingData(result);
     } catch (error) {
       console.error(error);
     }
   }
+
+  useEffect(() => {
+    getTrendingData();
+  }, []);
+
+  // async function queryThroughPages() {
+  //   try {
+  //     const response = await fetch(
+  //       `https://api.themoviedb.org/3/search/multi?api_key=7666a18c935f4f574785edd530e93698&${pageQuery}&page=${pageNumber}`
+  //     );
+  //     const result = await response.json();
+  //     console.log(result);
+  //     return setData(result);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
 
   return (
     <MovieApiContext.Provider
@@ -59,10 +76,10 @@ export function MovieApiProvider({ children }) {
         data,
         loading,
         pageNumber,
+        trendingData,
         setLoading,
         getData,
         setPageNumber,
-        queryThroughPages,
       }}
     >
       {children}

@@ -7,15 +7,9 @@ import PlayIcon from "../assets/icon-play.svg";
 import MovieApiContext from "../context/MovieApiContext";
 import { useContext } from "react";
 import { jsonData } from "../data";
-import { useEffect } from "react";
 
 function SearchResults() {
-  const { data, pageNumber, queryThroughPages, setPageNumber } =
-    useContext(MovieApiContext);
-
-  useEffect(() => {
-    queryThroughPages();
-  }, [pageNumber]);
+  const { data, pageNumber, setPageNumber } = useContext(MovieApiContext);
 
   if (data && data.results.length == 0) {
     return (
