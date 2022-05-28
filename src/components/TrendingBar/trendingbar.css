@@ -38,6 +38,8 @@
   grid-auto-rows: 1fr;
   position: relative;
   transition: all 0.1s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: multiply;
 }
 
 .trendingItemInfo {
@@ -58,6 +60,10 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.itemFacts p {
+  font-size: 1rem;
 }
 
 .itemCategory {
