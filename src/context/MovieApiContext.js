@@ -8,6 +8,7 @@ export function MovieApiProvider({ children }) {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
   const [trendingData, setTrendingData] = useState();
+  const [recommended, setRecommended] = useState();
   const [pageQuery, setPageQuery] = useState();
   const [pageNumber, setPageNumber] = useState(1);
   // const settings = {
@@ -53,8 +54,23 @@ export function MovieApiProvider({ children }) {
     }
   }
 
+  async function otherHomeScreenData() {
+    try {
+      setLoading(true);
+      const resp = await fetch(
+        "https://api.themoviedb.org/3/trending/all/day?api_key=7666a18c935f4f574785edd530e93698"
+      );
+      const result = await resp.json();
+      setLoading(false);
+      return setRecommended(result);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   useEffect(() => {
     getTrendingData();
+    otherHomeScreenData();
   }, []);
 
   // async function queryThroughPages() {
@@ -77,6 +93,7 @@ export function MovieApiProvider({ children }) {
         loading,
         pageNumber,
         trendingData,
+        recommended,
         setLoading,
         getData,
         setPageNumber,

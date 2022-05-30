@@ -12,8 +12,6 @@ function TrendingBar() {
   const [trending, setTrending] = useState([]);
   const { data, loading, trendingData } = useContext(MovieApiContext);
 
-  trendingData && console.log(trendingData);
-
   return (
     <div className="trendingBar">
       <h1 className="trendingHeader">Trending</h1>
@@ -51,7 +49,7 @@ function TrendingBar() {
                         src={item.media_type === "movie" ? MovieIcon : TvIcon}
                         alt="Media Type Icon"
                       />
-                      <p>{}</p>
+                      <p>{item.media_type}</p>
                     </span>
                     <div className="smallCircle"></div>
                     <p>{item.vote_average}</p>
