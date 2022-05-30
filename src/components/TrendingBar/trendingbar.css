@@ -12,7 +12,8 @@
 .trendingItemContainer {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 20rem;
+  grid-auto-columns: 25rem;
+  padding-bottom: 0.5rem;
   gap: 1rem;
   list-style-type: none;
 
@@ -20,8 +21,8 @@
   overflow-x: scroll;
   overflow-y: hidden;
   overscroll-behavior-inline: contain;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  scroll-margin-top: 1rem;
+  scrollbar-color: var(--main-bg-color);
 }
 
 .trendingItemContainer::-webkit-scrollbar {
@@ -96,6 +97,7 @@
 
   .trendingItemContainer {
     grid-auto-columns: 36%;
+    padding-bottom: 1rem;
   }
 
   .trendingItem {

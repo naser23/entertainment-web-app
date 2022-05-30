@@ -84,15 +84,17 @@ function SearchResults() {
 
         {data && (
           <div className="changePageContainer">
-            <button className="prevPage" onClick={downOnePage}>
-              Prev Page
-            </button>
-            <div className="currentPage">
-              Page {pageNumber} of {data && data.total_pages}
+            <div className="changePageBackground">
+              <button className="prevPage" onClick={downOnePage}>
+                Prev Page
+              </button>
+              <div className="currentPage">
+                Page {pageNumber} of {data && data.total_pages}
+              </div>
+              <button className="nextPage" onClick={upOnePage}>
+                Next Page
+              </button>
             </div>
-            <button className="nextPage" onClick={upOnePage}>
-              Next Page
-            </button>
           </div>
         )}
       </main>
