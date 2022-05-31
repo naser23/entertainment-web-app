@@ -9,9 +9,9 @@ import { useContext } from "react";
 import { jsonData } from "../data";
 
 function SearchResults() {
-  const { data, pageNumber, setPageNumber } = useContext(MovieApiContext);
+  const { searchData, pageNumber, setPageNumber } = useContext(MovieApiContext);
 
-  if (data && data.results.length == 0) {
+  if (searchData && searchData.results.length == 0) {
     return (
       <main className="pageContainer">
         <h1 className="header">Results for Search</h1>
@@ -21,7 +21,7 @@ function SearchResults() {
   }
 
   function upOnePage() {
-    if (pageNumber >= 1 && pageNumber < data.total_pages) {
+    if (pageNumber >= 1 && pageNumber < searchData.total_pages) {
       setPageNumber((prevState) => prevState + 1);
       console.log(pageNumber);
       // queryThroughPages();
@@ -29,7 +29,7 @@ function SearchResults() {
   }
 
   function downOnePage() {
-    if (pageNumber > 1 && pageNumber <= data.total_pages) {
+    if (pageNumber > 1 && pageNumber <= searchData.total_pages) {
       setPageNumber((prevState) => prevState - 1);
       console.log(pageNumber);
     }
@@ -40,8 +40,8 @@ function SearchResults() {
       <main className="pageContainer">
         <h1 className="header">Results for Search</h1>
         <ul className="mediaContainer">
-          {data &&
-            data.results.map((item) => (
+          {searchData &&
+            searchData.results.map((item) => (
               <li className="mediaItem" key={item.id}>
                 <img
                   className="img"
@@ -82,14 +82,14 @@ function SearchResults() {
             ))}
         </ul>
 
-        {data && (
+        {searchData && (
           <div className="changePageContainer">
             <div className="changePageBackground">
               <button className="prevPage" onClick={downOnePage}>
                 Prev Page
               </button>
               <div className="currentPage">
-                Page {pageNumber} of {data && data.total_pages}
+                Page {pageNumber} of {searchData && searchData.total_pages}
               </div>
               <button className="nextPage" onClick={upOnePage}>
                 Next Page
