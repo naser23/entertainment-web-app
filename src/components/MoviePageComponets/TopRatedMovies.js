@@ -1,12 +1,11 @@
 import React from "react";
-import BookmarkIconEmpty from "../assets/icon-bookmark-empty.svg";
-import BookmarkIconFull from "../assets/icon-bookmark-full.svg";
-import MovieIcon from "../assets/icon-category-movie.svg";
-import TvIcon from "../assets/icon-category-tv.svg";
-import PlayIcon from "../assets/icon-play.svg";
-import { jsonData } from "../data";
+import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
+import BookmarkIconFull from "../../assets/icon-bookmark-full.svg";
+import MovieIcon from "../../assets/icon-category-movie.svg";
+import TvIcon from "../../assets/icon-category-tv.svg";
+import PlayIcon from "../../assets/icon-play.svg";
 import { useContext } from "react";
-import MovieApiContext from "../context/MovieApiContext";
+import MovieApiContext from "../../context/MovieApiContext";
 
 function TopRatedMovies() {
   const { topRatedMovies } = useContext(MovieApiContext);

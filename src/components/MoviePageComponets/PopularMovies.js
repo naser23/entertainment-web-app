@@ -1,25 +1,27 @@
 import React from "react";
-import BookmarkIconEmpty from "../assets/icon-bookmark-empty.svg";
-import BookmarkIconFull from "../assets/icon-bookmark-full.svg";
-import MovieIcon from "../assets/icon-category-movie.svg";
-import PlayIcon from "../assets/icon-play.svg";
+import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
+import BookmarkIconFull from "../../assets/icon-bookmark-full.svg";
+import MovieIcon from "../../assets/icon-category-movie.svg";
+import TvIcon from "../../assets/icon-category-tv.svg";
+import PlayIcon from "../../assets/icon-play.svg";
 import { useContext } from "react";
-import MovieApiContext from "../context/MovieApiContext";
+import MovieApiContext from "../../context/MovieApiContext";
 
-function NowPlaying() {
-  const { nowPlaying } = useContext(MovieApiContext);
+function PopularMovies() {
+  const { popularMovies } = useContext(MovieApiContext);
+
   return (
     <>
-      <h1 className="header">Now In Theaters</h1>
+      <h1 className="header">Popular Movies</h1>
       <ul className="mediaContainer">
-        {nowPlaying &&
+        {popularMovies &&
           // only getting 8 results at a time
-          nowPlaying.results.slice(0, 8).map((item) => (
+          popularMovies.results.slice(0, 8).map((item) => (
             <li className="mediaItem" key={item.id}>
               <img
                 className="img"
                 src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
-                alt={"Movie Icon"}
+                alt={item.media_type === "movie" ? "Movie Icon" : "Tv Icon"}
               />
 
               <button className="mediaBookmarkButton">
@@ -52,4 +54,4 @@ function NowPlaying() {
   );
 }
 
-export default NowPlaying;
+export default PopularMovies;

@@ -1,7 +1,7 @@
 import React from "react";
-import PopularMovies from "../components/PopularMovies";
-import TopRatedMovies from "../components/TopRatedMovies";
-import NowPlayingMovies from "../components/NowPlayingMovies";
+import PopularMovies from "../components/MoviePageComponets/PopularMovies";
+import TopRatedMovies from "../components/MoviePageComponets/TopRatedMovies";
+import NowPlayingMovies from "../components/MoviePageComponets/NowPlayingMovies";
 
 function Movies() {
   return (
