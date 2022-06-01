@@ -29,7 +29,7 @@ function NowPlaying() {
                 />
               </button>
               <div className="mediaItemFacts">
-                <p>{item.release_date}</p>
+                <p>{item.release_date.slice(0, 4)}</p>
                 <div className="smallCircle"></div>
                 <span className="itemCategory">
                   <img src={MovieIcon} alt="Media Type Icon" />

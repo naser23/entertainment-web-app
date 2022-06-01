@@ -34,8 +34,8 @@ function Recommended() {
               <div className="mediaItemFacts">
                 <p>
                   {item.media_type == "movie"
-                    ? item.release_date
-                    : item.first_air_date}
+                    ? item.release_date.slice(0, 4)
+                    : item.first_air_date.slice(0, 4)}
                 </p>
                 <div className="smallCircle"></div>
                 <span className="itemCategory">

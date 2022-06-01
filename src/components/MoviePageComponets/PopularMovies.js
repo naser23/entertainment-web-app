@@ -23,7 +23,6 @@ function PopularMovies() {
                 src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
                 alt={item.media_type === "movie" ? "Movie Icon" : "Tv Icon"}
               />
-
               <button className="mediaBookmarkButton">
                 <img
                   src={item.isBookmarked ? BookmarkIconFull : BookmarkIconEmpty}
@@ -31,7 +30,7 @@ function PopularMovies() {
                 />
               </button>
               <div className="mediaItemFacts">
-                <p>{item.release_date}</p>
+                <p>{item.release_date.slice(0, 4)}</p>
                 <div className="smallCircle"></div>
                 <span className="itemCategory">
                   <img src={MovieIcon} alt="Media Type Icon" />
