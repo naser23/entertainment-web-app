@@ -56,7 +56,8 @@ function SearchResults() {
                   <p>
                     {item.media_type == "movie"
                       ? item.release_date.slice(0, 4)
-                      : item.first_air_date.slice(0, 4)}
+                      : // checking if the show has aired before splicing the string.
+                        item.first_air_date && item.first_air_date.slice(0, 4)}
                   </p>
                   <div className="smallCircle"></div>
                   <span className="itemCategory">

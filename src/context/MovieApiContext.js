@@ -14,6 +14,9 @@ export function MovieApiProvider({ children }) {
     popularMovies: "",
     topRatedMovies: "",
     nowPlaying: "",
+    latestTv: "",
+    popularTv: "",
+    topRatedTv: "",
   });
   const [pageQuery, setPageQuery] = useState();
   const [pageNumber, setPageNumber] = useState(1);
@@ -30,6 +33,9 @@ export function MovieApiProvider({ children }) {
     popularMovies,
     topRatedMovies,
     nowPlaying,
+    latestTv,
+    popularTv,
+    topRatedTv,
   } = mediaData;
 
   const trendingMedia =
@@ -47,6 +53,16 @@ export function MovieApiProvider({ children }) {
 
   const allNowPlaying =
     "https://api.themoviedb.org/3/movie/now_playing?api_key=7666a18c935f4f574785edd530e93698";
+
+  // tv show links
+  const allLatestTv =
+    "https://api.themoviedb.org/3/tv/on_the_air?api_key=7666a18c935f4f574785edd530e93698";
+
+  const allPopularTv =
+    "https://api.themoviedb.org/3/tv/popular?api_key=7666a18c935f4f574785edd530e93698";
+
+  const allTopRatedTv =
+    "https://api.themoviedb.org/3/tv/top_rated?api_key=7666a18c935f4f574785edd530e93698";
 
   // data for search results
   async function getData(text) {
@@ -73,6 +89,9 @@ export function MovieApiProvider({ children }) {
     const allPopularMoviesApiCall = axios.get(allPopularMovies);
     const allTopRatedMoviesApiCall = axios.get(allPopularMovies);
     const allNowPlayingApiCall = axios.get(allNowPlaying);
+    const allLatestTvApiCall = axios.get(allLatestTv);
+    const allPopularTvApiCall = axios.get(allPopularTv);
+    const allTopRatedTvApiCall = axios.get(allTopRatedTv);
 
     axios
       .all([
@@ -81,6 +100,9 @@ export function MovieApiProvider({ children }) {
         allPopularMoviesApiCall,
         allTopRatedMoviesApiCall,
         allNowPlayingApiCall,
+        allLatestTvApiCall,
+        allPopularTvApiCall,
+        allTopRatedTvApiCall,
       ])
       .then(
         axios.spread((...allData) => {
@@ -93,6 +115,11 @@ export function MovieApiProvider({ children }) {
           const allTopRated = allData[3].data;
           const allNowPlaying = allData[4].data;
 
+          // tv show page data
+          const allLatestTvData = allData[5].data;
+          const allPopularTvData = allData[6].data;
+          const allTopRatedTvData = allData[7].data;
+
           setMediaData({
             // home page data
             trendingData: trendMedia,
@@ -102,112 +129,18 @@ export function MovieApiProvider({ children }) {
             popularMovies: allPopMovies,
             topRatedMovies: allTopRated,
             nowPlaying: allNowPlaying,
+
+            // tv shows data
+            latestTv: allLatestTvData,
+            popularTv: allPopularTvData,
+            topRatedTv: allTopRatedTvData,
           });
         })
       );
   }
 
-  // data for trending section
-  // async function getTrendingData() {
-  //   try {
-  //     setLoading(true);
-  //     const resp = await fetch(
-  //       "https://api.themoviedb.org/3/trending/all/week?api_key=7666a18c935f4f574785edd530e93698"
-  //     );
-  //     const result = await resp.json();
-  //     setLoading(false);
-  //     return setTrendingData(result);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
-
-  // //  data for recommended section
-  // async function otherHomeScreenData() {
-  //   try {
-  //     setLoading(true);
-  //     const resp = await fetch(
-  //       "https://api.themoviedb.org/3/trending/all/day?api_key=7666a18c935f4f574785edd530e93698"
-  //     );
-  //     const result = await resp.json();
-  //     setLoading(false);
-  //     return setRecommended(result);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
-
-  // // data for PopularMovies component
-  // async function getPopularMovies() {
-  //   try {
-  //     setLoading(true);
-  //     const resp = await fetch(
-  //       "https://api.themoviedb.org/3/movie/popular?api_key=7666a18c935f4f574785edd530e93698"
-  //     );
-  //     const result = await resp.json();
-  //     setLoading(false);
-  //     return setPopularMovies(result);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
-
-  // // data for TopRatedMovies component
-  // async function getTopRatedMovies() {
-  //   try {
-  //     setLoading(true);
-  //     const resp = await fetch(
-  //       "https://api.themoviedb.org/3/movie/top_rated?api_key=7666a18c935f4f574785edd530e93698"
-  //     );
-  //     const result = await resp.json();
-  //     setLoading(false);
-  //     return setTopRatedMovies(result);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
-
-  // // data for NowPlaying component
-  // async function getNowPlayingMovies() {
-  //   try {
-  //     setLoading(true);
-  //     const resp = await fetch(
-  //       "https://api.themoviedb.org/3/movie/now_playing?api_key=7666a18c935f4f574785edd530e93698"
-  //     );
-  //     const result = await resp.json();
-  //     setLoading(false);
-  //     return setNowPlaying(result);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
-
-  // async function getLatestTvSeries() {
-  //   try {
-  //     setLoading(true);
-  //     const resp = await fetch(
-  //       "https://api.themoviedb.org/3/tv/latest?api_key=7666a18c935f4f574785edd530e93698"
-  //     );
-  //     const result = await resp.json();
-  //     setLoading(false);
-  //     return setNowPlaying(result);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
-
   useEffect(() => {
-    // getTrendingData();
-
-    // // movie data
-    // otherHomeScreenData();
-    // getPopularMovies();
-    // getTopRatedMovies();
-    // getNowPlayingMovies();
-
     axiosFetch();
-
-    // tv data
   }, []);
 
   return (
@@ -221,6 +154,9 @@ export function MovieApiProvider({ children }) {
         popularMovies,
         topRatedMovies,
         nowPlaying,
+        latestTv,
+        popularTv,
+        topRatedTv,
         setLoading,
         getData,
         setPageNumber,

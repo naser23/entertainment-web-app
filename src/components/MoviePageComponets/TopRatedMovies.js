@@ -21,7 +21,7 @@ function TopRatedMovies() {
               <img
                 className="img"
                 src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
-                alt={item.media_type === "movie" ? "Movie Icon" : "Tv Icon"}
+                alt={"Movie Image"}
               />
 
               <button className="mediaBookmarkButton">
