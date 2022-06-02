@@ -1,7 +1,4 @@
 import React from "react";
-import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
-import BookmarkIconFull from "../../assets/icon-bookmark-full.svg";
-import MovieIcon from "../../assets/icon-category-movie.svg";
 import TvIcon from "../../assets/icon-category-tv.svg";
 import PlayIcon from "../../assets/icon-play.svg";
 import { useContext } from "react";
@@ -23,18 +20,11 @@ function LatestTv() {
                 src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
                 alt={"Tv Show Image"}
               />
-
-              <button className="mediaBookmarkButton">
-                <img
-                  src={item.isBookmarked ? BookmarkIconFull : BookmarkIconEmpty}
-                  alt="Bookmark Icon"
-                />
-              </button>
               <div className="mediaItemFacts">
                 <p>{item.first_air_date.slice(0, 4)}</p>
                 <div className="smallCircle"></div>
                 <span className="itemCategory">
-                  <img src={MovieIcon} alt="Media Type Icon" />
+                  <img src={TvIcon} alt="Media Type Icon" />
                   <p>tv</p>
                 </span>
                 <div className="smallCircle"></div>

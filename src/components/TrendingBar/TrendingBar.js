@@ -1,9 +1,6 @@
 import React from "react";
 import { useState, useContext } from "react";
 import MovieApiContext from "../../context/MovieApiContext";
-import { jsonData } from "../../data";
-import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
-import BookmarkIconFull from "../../assets/icon-bookmark-full.svg";
 import MovieIcon from "../../assets/icon-category-movie.svg";
 import TvIcon from "../../assets/icon-category-tv.svg";
 import "../TrendingBar/trendingbar.css";
@@ -28,14 +25,6 @@ function TrendingBar() {
                   backgroundImage: `url(https://image.tmdb.org/t/p/original/${item.poster_path})`,
                 }}
               >
-                <button className="BookmarkButton">
-                  <img
-                    src={
-                      item.isBookmarked ? BookmarkIconFull : BookmarkIconEmpty
-                    }
-                    alt="Bookmark Icon"
-                  />
-                </button>
                 <section className="trendingItemInfo">
                   <div className="itemFacts">
                     <p>

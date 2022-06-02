@@ -64,6 +64,11 @@ export function MovieApiProvider({ children }) {
   const allTopRatedTv =
     "https://api.themoviedb.org/3/tv/top_rated?api_key=7666a18c935f4f574785edd530e93698";
 
+  const genreTest =
+    "https://api.themoviedb.org/3/discover/movie?api_key=7666a18c935f4f574785edd530e93698&with_genre=28";
+
+  console.log(axios.get(genreTest));
+
   // data for search results
   async function getData(text) {
     try {

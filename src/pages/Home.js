@@ -1,6 +1,6 @@
 import React from "react";
 import TrendingBar from "../components/TrendingBar/TrendingBar";
-import Recommended from "../components/Recommended/Recommended";
+import Recommended from "../components/Recommended";
 
 function Home() {
   return (

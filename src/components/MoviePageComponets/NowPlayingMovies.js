@@ -1,6 +1,4 @@
 import React from "react";
-import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
-import BookmarkIconFull from "../../assets/icon-bookmark-full.svg";
 import MovieIcon from "../../assets/icon-category-movie.svg";
 import PlayIcon from "../../assets/icon-play.svg";
 import { useContext } from "react";
@@ -21,13 +19,6 @@ function NowPlaying() {
                 src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
                 alt={"Movie Icon"}
               />
-
-              <button className="mediaBookmarkButton">
-                <img
-                  src={item.isBookmarked ? BookmarkIconFull : BookmarkIconEmpty}
-                  alt="Bookmark Icon"
-                />
-              </button>
               <div className="mediaItemFacts">
                 <p>{item.release_date.slice(0, 4)}</p>
                 <div className="smallCircle"></div>
