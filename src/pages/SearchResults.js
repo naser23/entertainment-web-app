@@ -48,10 +48,6 @@ function SearchResults() {
                   src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
                   alt={item.media_type === "movie" ? "Movie Icon" : "Tv Icon"}
                 />
-
-                <button className="mediaBookmarkButton">
-                  <img src={BookmarkIconEmpty} alt="Bookmark Icon" />
-                </button>
                 <div className="mediaItemFacts">
                   <p>
                     {item.media_type == "movie"

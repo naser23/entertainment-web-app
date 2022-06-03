@@ -85,11 +85,42 @@
   font-weight: 300;
 }
 
+.genreContainer {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 1.25rem;
+  margin-bottom: 4rem;
+}
+
+.genreItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  border-radius: 15px;
+  background-color: var(--dark-lightish-gray);
+  transition: all 0.1s ease-in-out;
+}
+
+.genreItem:hover {
+  cursor: pointer;
+  background-color: var(--light-grayish-blue);
+}
+
+.genreHeader {
+  color: white;
+  font-size: 1.25rem;
+}
+
 @media (min-width: 567.98px) {
 }
 
 @media (min-width: 767.98px) {
   .mediaContainer {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .genreContainer {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
@@ -106,6 +137,10 @@
   .recommendedForYou {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .genreContainer {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .mediaContainer {
@@ -127,6 +162,10 @@
 
   .playButton {
     margin-top: 7rem;
+  }
+
+  .genreContainer {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
 

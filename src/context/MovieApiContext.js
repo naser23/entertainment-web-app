@@ -17,6 +17,8 @@ export function MovieApiProvider({ children }) {
     latestTv: "",
     popularTv: "",
     topRatedTv: "",
+    movieGenres: "",
+    tvGenres: "",
   });
   const [pageQuery, setPageQuery] = useState();
   const [pageNumber, setPageNumber] = useState(1);
@@ -36,6 +38,8 @@ export function MovieApiProvider({ children }) {
     latestTv,
     popularTv,
     topRatedTv,
+    movieGenres,
+    tvGenres,
   } = mediaData;
 
   const trendingMedia =
@@ -64,10 +68,11 @@ export function MovieApiProvider({ children }) {
   const allTopRatedTv =
     "https://api.themoviedb.org/3/tv/top_rated?api_key=7666a18c935f4f574785edd530e93698";
 
-  const genreTest =
-    "https://api.themoviedb.org/3/discover/movie?api_key=7666a18c935f4f574785edd530e93698&with_genre=28";
+  const allMovieGenres =
+    "https://api.themoviedb.org/3/genre/movie/list?api_key=7666a18c935f4f574785edd530e93698";
 
-  console.log(axios.get(genreTest));
+  const allTvGenres =
+    "https://api.themoviedb.org/3/genre/tv/list?api_key=7666a18c935f4f574785edd530e93698";
 
   // data for search results
   async function getData(text) {
@@ -97,6 +102,8 @@ export function MovieApiProvider({ children }) {
     const allLatestTvApiCall = axios.get(allLatestTv);
     const allPopularTvApiCall = axios.get(allPopularTv);
     const allTopRatedTvApiCall = axios.get(allTopRatedTv);
+    const allMovieGenresApiCall = axios.get(allMovieGenres);
+    const allTvGenresApiCall = axios.get(allTvGenres);
 
     axios
       .all([
@@ -108,6 +115,8 @@ export function MovieApiProvider({ children }) {
         allLatestTvApiCall,
         allPopularTvApiCall,
         allTopRatedTvApiCall,
+        allMovieGenresApiCall,
+        allTvGenresApiCall,
       ])
       .then(
         axios.spread((...allData) => {
@@ -125,6 +134,10 @@ export function MovieApiProvider({ children }) {
           const allPopularTvData = allData[6].data;
           const allTopRatedTvData = allData[7].data;
 
+          // bookmark page data
+          const allMovieGenreData = allData[8].data;
+          const allTvGenresData = allData[9].data;
+
           setMediaData({
             // home page data
             trendingData: trendMedia,
@@ -135,10 +148,14 @@ export function MovieApiProvider({ children }) {
             topRatedMovies: allTopRated,
             nowPlaying: allNowPlaying,
 
-            // tv shows data
+            // tv show page data
             latestTv: allLatestTvData,
             popularTv: allPopularTvData,
             topRatedTv: allTopRatedTvData,
+
+            // bookmark page data
+            movieGenres: allMovieGenreData,
+            tvGenres: allTvGenresData,
           });
         })
       );
@@ -162,6 +179,8 @@ export function MovieApiProvider({ children }) {
         latestTv,
         popularTv,
         topRatedTv,
+        movieGenres,
+        tvGenres,
         setLoading,
         getData,
         setPageNumber,
