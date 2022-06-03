@@ -12,7 +12,7 @@ function SearchResults() {
     useContext(SearchResultsContext);
 
   useEffect(() => {
-    console.log(pageNumber);
+    // if the user has searched for results then searchPagination will run.
     results && searchPagination(pageNumber);
   }, [pageNumber]);
 
