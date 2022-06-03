@@ -5,13 +5,16 @@ import MovieIcon from "../assets/icon-category-movie.svg";
 import TvIcon from "../assets/icon-category-tv.svg";
 import PlayIcon from "../assets/icon-play.svg";
 import SearchResultsContext from "../context/SearchResultsContext";
-import { useContext } from "react";
-import { jsonData } from "../data";
+import { useContext, useState, useEffect } from "react";
 
 function SearchResults() {
-  const { query, results, pageNumber, setPageNumber } =
+  const { query, results, pageNumber, setPageNumber, searchPagination } =
     useContext(SearchResultsContext);
-  results && console.log(results);
+
+  useEffect(() => {
+    console.log(pageNumber);
+    results && searchPagination(pageNumber);
+  }, [pageNumber]);
 
   if (results && results.length == 0) {
     return (
@@ -24,16 +27,13 @@ function SearchResults() {
 
   function upOnePage() {
     if (pageNumber >= 1 && pageNumber < results.total_pages) {
-      setPageNumber((prevState) => prevState + 1);
-      console.log(pageNumber);
-      // queryThroughPages();
+      setPageNumber(() => pageNumber + 1);
     }
   }
 
   function downOnePage() {
     if (pageNumber > 1 && pageNumber <= results.total_pages) {
-      setPageNumber((prevState) => prevState - 1);
-      console.log(pageNumber);
+      setPageNumber(() => pageNumber - 1);
     }
   }
 
@@ -53,7 +53,7 @@ function SearchResults() {
                 <div className="mediaItemFacts">
                   <p>
                     {item.media_type == "movie"
-                      ? item.release_date.slice(0, 4)
+                      ? item.release_date && item.release_date.slice(0, 4)
                       : // checking if the show has aired before splicing the string.
                         item.first_air_date && item.first_air_date.slice(0, 4)}
                   </p>
