@@ -4,14 +4,16 @@ import BookmarkIconFull from "../assets/icon-bookmark-full.svg";
 import MovieIcon from "../assets/icon-category-movie.svg";
 import TvIcon from "../assets/icon-category-tv.svg";
 import PlayIcon from "../assets/icon-play.svg";
-import MovieApiContext from "../context/MovieApiContext";
+import SearchResultsContext from "../context/SearchResultsContext";
 import { useContext } from "react";
 import { jsonData } from "../data";
 
 function SearchResults() {
-  const { searchData, pageNumber, setPageNumber } = useContext(MovieApiContext);
+  const { query, results, pageNumber, setPageNumber } =
+    useContext(SearchResultsContext);
+  results && console.log(results);
 
-  if (searchData && searchData.results.length == 0) {
+  if (results && results.length == 0) {
     return (
       <main className="pageContainer">
         <h1 className="header">Results for Search</h1>
@@ -21,7 +23,7 @@ function SearchResults() {
   }
 
   function upOnePage() {
-    if (pageNumber >= 1 && pageNumber < searchData.total_pages) {
+    if (pageNumber >= 1 && pageNumber < results.total_pages) {
       setPageNumber((prevState) => prevState + 1);
       console.log(pageNumber);
       // queryThroughPages();
@@ -29,7 +31,7 @@ function SearchResults() {
   }
 
   function downOnePage() {
-    if (pageNumber > 1 && pageNumber <= searchData.total_pages) {
+    if (pageNumber > 1 && pageNumber <= results.total_pages) {
       setPageNumber((prevState) => prevState - 1);
       console.log(pageNumber);
     }
@@ -40,8 +42,8 @@ function SearchResults() {
       <main className="pageContainer">
         <h1 className="header">Results for Search</h1>
         <ul className="mediaContainer">
-          {searchData &&
-            searchData.results.map((item) => (
+          {results &&
+            results.results.map((item) => (
               <li className="mediaItem" key={item.id}>
                 <img
                   className="img"
@@ -79,14 +81,14 @@ function SearchResults() {
             ))}
         </ul>
 
-        {searchData && (
+        {results && (
           <div className="changePageContainer">
             <div className="changePageBackground">
               <button className="prevPage" onClick={downOnePage}>
                 Prev Page
               </button>
               <div className="currentPage">
-                Page {pageNumber} of {searchData && searchData.total_pages}
+                Page {pageNumber} of {results && results.total_pages}
               </div>
               <button className="nextPage" onClick={upOnePage}>
                 Next Page

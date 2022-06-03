@@ -7,7 +7,6 @@ const MovieApiContext = createContext();
 
 export function MovieApiProvider({ children }) {
   const [loading, setLoading] = useState(false);
-  const [searchData, setSearchData] = useState();
   const [mediaData, setMediaData] = useState({
     trendingData: "",
     recommended: "",
@@ -20,8 +19,6 @@ export function MovieApiProvider({ children }) {
     movieGenres: "",
     tvGenres: "",
   });
-  const [pageQuery, setPageQuery] = useState();
-  const [pageNumber, setPageNumber] = useState(1);
 
   // const settings = {
   //   headers: {
@@ -73,24 +70,6 @@ export function MovieApiProvider({ children }) {
 
   const allTvGenres =
     "https://api.themoviedb.org/3/genre/tv/list?api_key=7666a18c935f4f574785edd530e93698";
-
-  // data for search results
-  async function getData(text) {
-    try {
-      setLoading(true);
-
-      const params = new URLSearchParams({ query: text });
-      const response = await fetch(
-        `https://api.themoviedb.org/3/search/multi?api_key=7666a18c935f4f574785edd530e93698&${params}&page=${pageNumber}`
-      );
-      const result = await response.json();
-      setLoading(false);
-      setPageNumber(1);
-      return setSearchData(result);
-    } catch (error) {
-      console.error(error);
-    }
-  }
 
   // setting up all api calls with axios
   async function axiosFetch() {
@@ -168,9 +147,7 @@ export function MovieApiProvider({ children }) {
   return (
     <MovieApiContext.Provider
       value={{
-        searchData,
         loading,
-        pageNumber,
         trendingData,
         recommended,
         popularMovies,
@@ -182,8 +159,6 @@ export function MovieApiProvider({ children }) {
         movieGenres,
         tvGenres,
         setLoading,
-        getData,
-        setPageNumber,
       }}
     >
       {children}

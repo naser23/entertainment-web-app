@@ -1,6 +1,6 @@
 import React from "react";
 import SearchIcon from "../../assets/icon-search.svg";
-import MovieApiContext from "../../context/MovieApiContext";
+import SearchResultsContext from "../../context/SearchResultsContext";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { jsonData } from "../../data";
@@ -8,7 +8,7 @@ import "../SearchBar/searchbar.css";
 
 function SearchBar() {
   const [text, setText] = useState("");
-  const { getData, resultsData } = useContext(MovieApiContext);
+  const { query, result, getData } = useContext(SearchResultsContext);
   const navigate = useNavigate();
 
   function onSubmit(e) {
