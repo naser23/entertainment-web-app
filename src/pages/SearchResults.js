@@ -47,7 +47,7 @@ function SearchResults() {
               <li className="mediaItem" key={item.id}>
                 <img
                   className="img"
-                  src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
                   alt={item.media_type === "movie" ? "Movie Icon" : "Tv Icon"}
                 />
                 <div className="mediaItemFacts">
