@@ -48,8 +48,10 @@ function SearchResults() {
                 <img
                   className="img"
                   src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
-                  alt={item.media_type === "movie" ? "Movie Icon" : "Tv Icon"}
+                  alt={item.media_type}
+                  loading="lazy"
                 />
+                {/* <div className="loading"></div> */}
                 <div className="mediaItemFacts">
                   <p>
                     {item.media_type == "movie"

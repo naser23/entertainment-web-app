@@ -32,11 +32,6 @@
   padding-top: 1rem;
 }
 
-/* .imgArea {
-  width: 100%;
-  border: 1px solid white;
-} */
-
 .img {
   border-radius: 10px;
   background-position: center;
@@ -45,6 +40,31 @@
   position: relative;
   transition: all 0.1s ease-in-out;
   width: 100%;
+  height: 6rem;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1000px 0;
+  }
+}
+
+.loading {
+  width: 100%;
+  height: 6rem;
+  background-image: linear-gradient(
+    90deg,
+    #595959 0%,
+    #4d4d4d 40%,
+    #404040 60%,
+    #595959 100%
+  );
+  background-position: 0px 0px;
+  background-repeat: repeat;
+  animation: animatedBackground 5s linear infinite;
 }
 
 .playButton {
@@ -124,8 +144,10 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .img {
+  .img,
+  .loading {
     border-radius: 20px;
+    height: 8.5rem;
   }
 
   .playButton {
@@ -147,6 +169,11 @@
     padding-right: 1rem;
   }
 
+  .img,
+  .loading {
+    height: 10.5rem;
+  }
+
   .playButton {
     margin-top: 4.5rem;
   }
@@ -154,6 +181,11 @@
 @media (min-width: 1199.98px) {
   .mediaContainer {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .img,
+  .loading {
+    height: 14rem;
   }
 
   .playButton {
