@@ -2,6 +2,7 @@ import React from "react";
 import MovieIcon from "../assets/icon-category-movie.svg";
 import TvIcon from "../assets/icon-category-tv.svg";
 import PlayIcon from "../assets/icon-play.svg";
+import Image from "./Image";
 import { useContext } from "react";
 import MovieApiContext from "../context/MovieApiContext";
 import "../components/mediaItem.css";
@@ -16,11 +17,7 @@ function Recommended() {
         {recommended &&
           recommended.results.map((item) => (
             <li className="mediaItem" key={item.id}>
-              <img
-                className="img"
-                src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
-                alt={item.media_type === "movie" ? "Movie Icon" : "Tv Icon"}
-              />
+              <Image item={item} />
 
               <div className="mediaItemFacts">
                 <p>

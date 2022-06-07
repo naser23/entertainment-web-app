@@ -3,6 +3,7 @@ import MovieIcon from "../../assets/icon-category-movie.svg";
 import PlayIcon from "../../assets/icon-play.svg";
 import { useContext } from "react";
 import MovieApiContext from "../../context/MovieApiContext";
+import Image from "../Image";
 
 function TopRatedMovies() {
   const { topRatedMovies } = useContext(MovieApiContext);
@@ -15,11 +16,7 @@ function TopRatedMovies() {
           // only getting 8 results at a time
           topRatedMovies.results.slice(0, 8).map((item) => (
             <li className="mediaItem" key={item.id}>
-              <img
-                className="img"
-                src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
-                alt={"Movie Image"}
-              />
+              <Image item={item} />
               <div className="mediaItemFacts">
                 <p>{item.release_date.slice(0, 4)}</p>
                 <div className="smallCircle"></div>

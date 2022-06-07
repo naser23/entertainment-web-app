@@ -3,6 +3,7 @@ import TvIcon from "../../assets/icon-category-tv.svg";
 import PlayIcon from "../../assets/icon-play.svg";
 import { useContext } from "react";
 import MovieApiContext from "../../context/MovieApiContext";
+import Image from "../Image";
 
 function PopularTv() {
   const { popularTv } = useContext(MovieApiContext);
@@ -15,11 +16,7 @@ function PopularTv() {
           // only getting 8 results at a time
           popularTv.results.slice(0, 8).map((item) => (
             <li className="mediaItem" key={item.id}>
-              <img
-                className="img"
-                src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
-                alt={"Tv Show Image"}
-              />
+              <Image item={item} />
               <div className="mediaItemFacts">
                 <p>{item.first_air_date.slice(0, 4)}</p>
                 <div className="smallCircle"></div>

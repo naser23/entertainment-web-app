@@ -46,12 +46,7 @@ function SearchResults() {
           {results &&
             results.results.map((item) => (
               <li className="mediaItem" key={item.id}>
-                <img
-                  className="img"
-                  src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
-                  alt={item.media_type}
-                  loading="lazy"
-                />
+                <Image item={item} />
                 {/* <div className="loading"></div> */}
                 <div className="mediaItemFacts">
                   <p>
