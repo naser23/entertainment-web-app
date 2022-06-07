@@ -134,6 +134,11 @@
 }
 
 @media (min-width: 567.98px) {
+  .img,
+  .loading {
+    border-radius: 20px;
+    height: 8.5rem;
+  }
 }
 
 @media (min-width: 767.98px) {
@@ -142,12 +147,6 @@
   }
   .genreContainer {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .img,
-  .loading {
-    border-radius: 20px;
-    height: 8.5rem;
   }
 
   .playButton {
@@ -171,7 +170,7 @@
 
   .img,
   .loading {
-    height: 10.5rem;
+    height: 12rem;
   }
 
   .playButton {

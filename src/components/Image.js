@@ -25,13 +25,14 @@ function Image(item) {
   // }
 
   const backdropImg = `https://image.tmdb.org/t/p/original/${item.item.backdrop_path}`;
+  const posterImg = `https://image.tmdb.org/t/p/original/${item.item.poster_path}`;
 
   return (
     <>
       {backdropImg ? (
         <LazyLoadImage
           className="img"
-          src={`https://image.tmdb.org/t/p/original/${item.item.backdrop_path}`}
+          src={backdropImg ? backdropImg : posterImg}
           alt={item.item.media_type}
           effect="blur"
           placeholder={<div className="loading"></div>}
