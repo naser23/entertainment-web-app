@@ -5,6 +5,7 @@ import MovieIcon from "../assets/icon-category-movie.svg";
 import TvIcon from "../assets/icon-category-tv.svg";
 import PlayIcon from "../assets/icon-play.svg";
 import SearchResultsContext from "../context/SearchResultsContext";
+import Image from "../components/Image";
 import { useContext, useState, useEffect } from "react";
 
 function SearchResults() {
