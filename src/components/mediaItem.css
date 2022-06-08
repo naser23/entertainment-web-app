@@ -67,6 +67,10 @@
   animation: animatedBackground 5s linear infinite;
 }
 
+.loading:hover {
+  cursor: pointer;
+}
+
 .playButton {
   display: flex;
   justify-content: center;
