@@ -4,11 +4,18 @@ import TvIcon from "../assets/icon-category-tv.svg";
 import PlayIcon from "../assets/icon-play.svg";
 import Image from "./Image";
 import { useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import MovieApiContext from "../context/MovieApiContext";
 import "../components/mediaItem.css";
 
 function Recommended() {
   const { recommended } = useContext(MovieApiContext);
+  const navigate = useNavigate();
+  const { media_type, id } = useParams();
+
+  function getMediaDetails(item) {
+    navigate(`/${item.media_type}/${item.id}`);
+  }
 
   return (
     <section className="recommendedForYou">
@@ -16,7 +23,11 @@ function Recommended() {
       <ul className="mediaContainer">
         {recommended &&
           recommended.results.map((item) => (
-            <li className="mediaItem" key={item.id}>
+            <li
+              className="mediaItem"
+              key={item.id}
+              onClick={() => getMediaDetails(item)}
+            >
               <Image item={item} />
 
               <div className="mediaItemFacts">

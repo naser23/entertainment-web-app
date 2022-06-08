@@ -5,12 +5,18 @@ import MovieIcon from "../assets/icon-category-movie.svg";
 import TvIcon from "../assets/icon-category-tv.svg";
 import PlayIcon from "../assets/icon-play.svg";
 import SearchResultsContext from "../context/SearchResultsContext";
+import MovieDetailsContext from "../context/MovieDetailsContext";
 import Image from "../components/Image";
 import { useContext, useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 function SearchResults() {
   const { query, results, pageNumber, setPageNumber, searchPagination } =
     useContext(SearchResultsContext);
+
+  const { type, media_id, setMovieDetails } = useContext(MovieDetailsContext);
+  const navigate = useNavigate();
+  const { media_type, id } = useParams();
 
   useEffect(() => {
     // if the user has searched for results then searchPagination will run.
@@ -38,6 +44,14 @@ function SearchResults() {
     }
   }
 
+  function getMediaDetails(item) {
+    setMovieDetails({
+      type: item.media_type,
+      media_id: item.id,
+    });
+    navigate(`/${item.media_type}/${item.id}`);
+  }
+
   return (
     <>
       <main className="pageContainer">
@@ -45,7 +59,11 @@ function SearchResults() {
         <ul className="mediaContainer">
           {results &&
             results.results.map((item) => (
-              <li className="mediaItem" key={item.id}>
+              <li
+                className="mediaItem"
+                key={item.id}
+                onClick={() => getMediaDetails(item)}
+              >
                 <Image item={item} />
                 {/* <div className="loading"></div> */}
                 <div className="mediaItemFacts">

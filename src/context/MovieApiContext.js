@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import { jsonData } from "../data";
 import { useEffect } from "react";
 import axios from "axios";
 
@@ -19,12 +18,12 @@ export function MovieApiProvider({ children }) {
     movieGenres: "",
     tvGenres: "",
   });
+  const [movieDetails, setMovieDetails] = useState({
+    type: "",
+    id: "",
+  });
 
-  // const settings = {
-  //   headers: {
-  //     METHOD: "GET",
-  //   },
-  // };
+  const { type, id } = movieDetails;
 
   const {
     trendingData,
