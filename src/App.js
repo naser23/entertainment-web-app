@@ -14,6 +14,7 @@ import TvSeries from "./pages/TvSeries";
 import LogIn from "./pages/LogIn/LogIn";
 import SignUp from "./pages/SignUp/SignUp";
 import Profile from "./pages/Profile";
+import MovieDetails from "./pages/MovieDetails/MovieDetails";
 import Loading from "./components/Loading/Loading";
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
 
             <Route path="/log-in" element={<LogIn />}></Route>
             <Route path="/sign-up" element={<SignUp />}></Route>
+            <Route path="/:media_type/:id" element={<MovieDetails />}></Route>
             <Route path="/verify-email" element={<Loading />}></Route>
 
             <Route path="/profile" element={<ProfileRoute />}>

@@ -2,11 +2,18 @@ import React from "react";
 import MovieIcon from "../../assets/icon-category-movie.svg";
 import PlayIcon from "../../assets/icon-play.svg";
 import { useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import MovieApiContext from "../../context/MovieApiContext";
 import Image from "../Image";
 
 function TopRatedMovies() {
   const { topRatedMovies } = useContext(MovieApiContext);
+  const navigate = useNavigate();
+  const { media_type, id } = useParams();
+
+  function getMediaDetails(item) {
+    navigate(`/movie/${item.id}`);
+  }
 
   return (
     <>
@@ -15,7 +22,11 @@ function TopRatedMovies() {
         {topRatedMovies &&
           // only getting 8 results at a time
           topRatedMovies.results.slice(0, 8).map((item) => (
-            <li className="mediaItem" key={item.id}>
+            <li
+              className="mediaItem"
+              key={item.id}
+              onClick={() => getMediaDetails(item)}
+            >
               <Image item={item} />
               <div className="mediaItemFacts">
                 <p>{item.release_date.slice(0, 4)}</p>

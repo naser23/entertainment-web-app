@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import MovieApiContext from "../../context/MovieApiContext";
 import MovieIcon from "../../assets/icon-category-movie.svg";
 import TvIcon from "../../assets/icon-category-tv.svg";
@@ -8,6 +9,13 @@ import "../TrendingBar/trendingbar.css";
 function TrendingBar() {
   const [trending, setTrending] = useState([]);
   const { data, loading, trendingData } = useContext(MovieApiContext);
+
+  const navigate = useNavigate();
+  const { media_type, id } = useParams();
+
+  function getMediaDetails(item) {
+    navigate(`/${item.media_type}/${item.id}`);
+  }
 
   return (
     <div className="trendingBar">
@@ -24,7 +32,7 @@ function TrendingBar() {
                 style={{
                   backgroundImage: `url(https://image.tmdb.org/t/p/original/${item.poster_path})`,
                 }}
-                loading="lazy"
+                onClick={() => getMediaDetails(item)}
               >
                 <section className="trendingItemInfo">
                   <div className="itemFacts">

@@ -4,9 +4,16 @@ import PlayIcon from "../../assets/icon-play.svg";
 import { useContext } from "react";
 import MovieApiContext from "../../context/MovieApiContext";
 import Image from "../Image";
+import { useParams, useNavigate } from "react-router-dom";
 
 function LatestTv() {
   const { latestTv } = useContext(MovieApiContext);
+  const navigate = useNavigate();
+  const { media_type, id } = useParams();
+
+  function getMediaDetails(item) {
+    navigate(`/tv/${item.id}`);
+  }
 
   return (
     <>
@@ -15,7 +22,11 @@ function LatestTv() {
         {latestTv &&
           // only getting 8 results at a time
           latestTv.results.slice(0, 8).map((item) => (
-            <li className="mediaItem" key={item.id}>
+            <li
+              className="mediaItem"
+              key={item.id}
+              onClick={() => getMediaDetails(item)}
+            >
               <Image item={item} />
               <div className="mediaItemFacts">
                 <p>{item.first_air_date.slice(0, 4)}</p>

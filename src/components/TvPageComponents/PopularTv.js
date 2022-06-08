@@ -4,9 +4,16 @@ import PlayIcon from "../../assets/icon-play.svg";
 import { useContext } from "react";
 import MovieApiContext from "../../context/MovieApiContext";
 import Image from "../Image";
+import { useNavigate, useParams } from "react-router-dom";
 
 function PopularTv() {
   const { popularTv } = useContext(MovieApiContext);
+  const navigate = useNavigate();
+  const { media_type, id } = useParams();
+
+  function getMediaDetails(item) {
+    navigate(`/tv/${item.id}`);
+  }
 
   return (
     <>
@@ -15,7 +22,11 @@ function PopularTv() {
         {popularTv &&
           // only getting 8 results at a time
           popularTv.results.slice(0, 8).map((item) => (
-            <li className="mediaItem" key={item.id}>
+            <li
+              className="mediaItem"
+              key={item.id}
+              onClick={() => getMediaDetails(item)}
+            >
               <Image item={item} />
               <div className="mediaItemFacts">
                 <p>{item.first_air_date.slice(0, 4)}</p>
