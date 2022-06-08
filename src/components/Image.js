@@ -26,13 +26,15 @@ function Image(item) {
 
   const backdropImg = `https://image.tmdb.org/t/p/original/${item.item.backdrop_path}`;
   const posterImg = `https://image.tmdb.org/t/p/original/${item.item.poster_path}`;
+  const backdropNull = item.item.backdrop_path;
 
   return (
     <>
-      {backdropImg ? (
+      {/* // check if the image will load. if not load the placeholder image. */}
+      {backdropNull !== null ? (
         <LazyLoadImage
           className="img"
-          src={backdropImg ? backdropImg : posterImg}
+          src={backdropNull !== null ? backdropImg : posterImg}
           alt={item.item.media_type}
           effect="blur"
           placeholder={<div className="loading"></div>}
