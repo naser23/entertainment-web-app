@@ -2,19 +2,24 @@ import React from "react";
 import TvIcon from "../../assets/icon-category-tv.svg";
 import PlayIcon from "../../assets/icon-play.svg";
 import { useContext } from "react";
-import MovieApiContext from "../../context/MovieApiContext";
-import Image from "../Image";
 import { useNavigate, useParams } from "react-router-dom";
+import MovieApiContext from "../../context/MovieApiContext";
+import MovieDetailsContext from "../../context/MovieDetailsContext";
+import Image from "../Image";
 
 function TopRatedTv() {
   const { topRatedTv } = useContext(MovieApiContext);
   const navigate = useNavigate();
   const { media_type, id } = useParams();
+  const { type, media_id, setMovieDetails } = useContext(MovieDetailsContext);
 
   function getMediaDetails(item) {
+    setMovieDetails({
+      type: "tv",
+      media_id: item.id,
+    });
     navigate(`/tv/${item.id}`);
   }
-
   return (
     <>
       <h1 className="header">Top Rated Tv Shows</h1>

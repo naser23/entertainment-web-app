@@ -4,15 +4,21 @@ import PlayIcon from "../../assets/icon-play.svg";
 import { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import MovieApiContext from "../../context/MovieApiContext";
+import MovieDetailsContext from "../../context/MovieDetailsContext";
 import Image from "../Image";
 
 function TopRatedMovies() {
   const { topRatedMovies } = useContext(MovieApiContext);
   const navigate = useNavigate();
   const { media_type, id } = useParams();
+  const { type, media_id, setMovieDetails } = useContext(MovieDetailsContext);
 
   function getMediaDetails(item) {
-    navigate(`/movie/${item.id}`);
+    setMovieDetails({
+      type: "movie",
+      media_id: item.id,
+    });
+    navigate(`/tv/${item.id}`);
   }
 
   return (

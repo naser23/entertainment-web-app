@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import MovieApiContext from "../../context/MovieApiContext";
+import MovieDetailsContext from "../../context/MovieDetailsContext";
 import MovieIcon from "../../assets/icon-category-movie.svg";
 import TvIcon from "../../assets/icon-category-tv.svg";
 import "../TrendingBar/trendingbar.css";
@@ -9,11 +10,16 @@ import "../TrendingBar/trendingbar.css";
 function TrendingBar() {
   const [trending, setTrending] = useState([]);
   const { data, loading, trendingData } = useContext(MovieApiContext);
+  const { type, media_id, setMovieDetails } = useContext(MovieDetailsContext);
 
   const navigate = useNavigate();
   const { media_type, id } = useParams();
 
   function getMediaDetails(item) {
+    setMovieDetails({
+      type: item.media_type,
+      media_id: item.id,
+    });
     navigate(`/${item.media_type}/${item.id}`);
   }
 

@@ -6,14 +6,20 @@ import Image from "./Image";
 import { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import MovieApiContext from "../context/MovieApiContext";
+import MovieDetailsContext from "../context/MovieDetailsContext";
 import "../components/mediaItem.css";
 
 function Recommended() {
   const { recommended } = useContext(MovieApiContext);
   const navigate = useNavigate();
   const { media_type, id } = useParams();
+  const { type, media_id, setMovieDetails } = useContext(MovieDetailsContext);
 
   function getMediaDetails(item) {
+    setMovieDetails({
+      type: item.media_type,
+      media_id: item.id,
+    });
     navigate(`/${item.media_type}/${item.id}`);
   }
 

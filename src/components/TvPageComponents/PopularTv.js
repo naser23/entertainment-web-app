@@ -3,15 +3,21 @@ import TvIcon from "../../assets/icon-category-tv.svg";
 import PlayIcon from "../../assets/icon-play.svg";
 import { useContext } from "react";
 import MovieApiContext from "../../context/MovieApiContext";
-import Image from "../Image";
+import MovieDetailsContext from "../../context/MovieDetailsContext";
 import { useNavigate, useParams } from "react-router-dom";
+import Image from "../Image";
 
 function PopularTv() {
   const { popularTv } = useContext(MovieApiContext);
   const navigate = useNavigate();
   const { media_type, id } = useParams();
+  const { type, media_id, setMovieDetails } = useContext(MovieDetailsContext);
 
   function getMediaDetails(item) {
+    setMovieDetails({
+      type: "tv",
+      media_id: item.id,
+    });
     navigate(`/tv/${item.id}`);
   }
 
