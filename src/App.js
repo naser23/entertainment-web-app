@@ -47,6 +47,14 @@ function App() {
 
               <Route path="/log-in" element={<LogIn />}></Route>
               <Route path="/sign-up" element={<SignUp />}></Route>
+
+              <Route path="/:media_type/:id" element={<NavbarRoute />}>
+                <Route
+                  path="/:media_type/:id"
+                  element={<MovieDetails />}
+                ></Route>
+              </Route>
+
               <Route path="/:media_type/:id" element={<MovieDetails />}></Route>
               <Route path="/verify-email" element={<Loading />}></Route>
 

@@ -21,21 +21,36 @@ function MovieDetails() {
     data && data.poster_path
   }`;
   return (
-    <main className="movieDetailsContainer">
-      <section className="topSection">
-        <h2 className="movieTitle">{data && data.title}</h2>
-        {data ? (
-          <LazyLoadImage
-            className="img"
-            src={posterImg}
-            alt={type}
-            effect="blur"
-            placeholder={<div className="loading"></div>}
-            height="100%"
-          />
-        ) : (
-          <div className="loading"></div>
-        )}
+    <main className="mediaDetailsContainer">
+      {data ? (
+        <LazyLoadImage
+          className="mediaDetailsImg"
+          src={posterImg}
+          alt={type}
+          effect="blur"
+          placeholder={<div className="loading"></div>}
+          height="100%"
+        />
+      ) : (
+        <div className="loading"></div>
+      )}
+      <section className="infoSection">
+        <h1 className="mediaDetailsTitle">
+          {data && (data.title ? data.title : data.name)}
+        </h1>
+        <div className="releaseInfo">
+          {data &&
+            (type == "movie" ? (
+              // if user clicks on movie, display this text.
+              <p>Release Date: {data.release_date}</p>
+            ) : (
+              // else if tv show, display this text
+              <>
+                <p>First episode aired on: {data.first_air_date}.</p>
+                <p>Latest episode aired on: {data.last_air_date}</p>
+              </>
+            ))}
+        </div>
       </section>
     </main>
   );

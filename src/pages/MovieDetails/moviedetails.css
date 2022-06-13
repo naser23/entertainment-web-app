@@ -1,8 +1,54 @@
-.movieDetailsContainer {
+.mediaDetailsContainer {
   width: 100%;
-  height: 100vh;
+  overflow-x: hidden;
   color: white;
+  padding: 0 1rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  gap: 2rem;
+}
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mediaDetailsTitle {
+  text-align: center;
+}
+
+.mediaDetailsImg {
+  width: 12rem;
+  height: 15rem;
+  border-radius: 10px;
+}
+
+@media (min-width: 567.98px) {
+  .mediaDetailsContainer {
+  }
+}
+@media (min-width: 767.98px) {
+  .mediaDetailsContainer {
+    padding: 2rem 6rem;
+  }
+
+  .mediaDetailsImg {
+    width: 20rem;
+    height: 25rem;
+  }
+}
+@media (min-width: 991.98px) {
+  .mediaDetailsContainer {
+    padding-left: 12%;
+    padding-top: 8%;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+@media (min-width: 1199.98px) {
+  .mediaDetailsContainer {
+    padding-left: 10%;
+  }
 }
