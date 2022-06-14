@@ -9,10 +9,36 @@ function MovieDetails() {
   const { type, media_id, data, credits, fetchDetails } =
     useContext(MovieDetailsContext);
 
-  data && console.log(data);
+  credits && console.log(credits);
   useEffect(() => {
     type && fetchDetails();
   }, []);
+
+  function displayTopInfo() {
+    // if result is a movie
+    if (data.release_date) {
+      return <p>{data.release_date.slice(0, 4)}</p>;
+      // if result is a Tv show
+    } else if (data.first_air_date) {
+      return <p>{data.first_air_date.slice(0, 4)}</p>;
+      // if movie/tv show hasn't released yet
+    } else {
+      return "N/A";
+    }
+  }
+
+  function displayRuntime() {
+    // if result is a movie
+    if (data.runtime) {
+      return <p>{data.runtime}m</p>;
+      // if result is a Tv show
+    } else if (data.episode_run_time) {
+      return <p>{data.episode_run_time}m/Ep</p>;
+      // if movie/tv show hasn't released yet
+    } else {
+      return "N/A";
+    }
+  }
 
   const backdrop_path = `https://image.tmdb.org/t/p/original/${
     data && data.backdrop_path
@@ -41,16 +67,8 @@ function MovieDetails() {
             <p className="tagline">"{data.tagline}"</p>
 
             <div className="topInfo">
-              <p>
-                {data
-                  ? // check if movie/tv show has released
-                    data.release_date
-                    ? data.release_date.slice(0, 4)
-                    : data.first_air_date.slice(0, 4)
-                  : // if it hasn't released then return this.
-                    "N/A"}
-              </p>
-
+              {/* // was able to conditionally render with function */}
+              {displayTopInfo()}
               <div className="smallCircle"></div>
               {data.genres.map((genre) => (
                 <p className="genreNames" key={genre.id}>
@@ -58,18 +76,34 @@ function MovieDetails() {
                 </p>
               ))}
               <div className="smallCircle"></div>
-
-              <p>
-                {data
-                  ? // check if movie/tv show has released
-                    data.release_date
-                    ? data.runtime
-                    : data.episode_run_time[0]
-                  : // if it hasn't released then return this.
-                    "N/A"}
-                m
-              </p>
+              {displayRuntime()}
             </div>
+            <div className="overview">
+              <h3>Overview:</h3>
+              <p className="overviewText">{data.overview}</p>
+            </div>
+            {data.release_date || data.first_air_date ? (
+              <div className="castAndCrew">
+                <h3>Cast:</h3>
+                <ul className="staffMembers">
+                  {credits.cast.slice(0, 12).map((person) => (
+                    <li className="mediaStaffMember" key={person.id}>
+                      {person.name}
+                    </li>
+                  ))}
+                </ul>
+                <h3>Crew:</h3>
+                <ul className="staffMembers">
+                  {credits.crew.slice(0, 12).map((person) => (
+                    <li className="mediaStaffMember" key={person.id}>
+                      {person.name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              "No cast and crew info at this time."
+            )}
           </section>
         </>
       )}

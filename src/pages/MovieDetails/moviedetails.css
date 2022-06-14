@@ -46,9 +46,26 @@
   border-radius: 10px;
 }
 
+.overviewText {
+  padding-top: 0.5rem;
+  line-height: 1.5rem;
+}
+
+.staffMembers {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+
+.mediaStaffMember {
+  padding: 0.5rem 1rem;
+  border: 2px solid white;
+  border-radius: 15px;
+}
+
 @media (min-width: 567.98px) {
-  .mediaDetailsContainer {
-  }
 }
 @media (min-width: 767.98px) {
   .mediaDetailsContainer {
@@ -68,6 +85,9 @@
     justify-content: center;
     align-items: start;
   }
+  .infoSection {
+    width: 35%;
+  }
 
   .mediaDetailsTitle {
     text-align: left;
@@ -84,5 +104,7 @@
 @media (min-width: 1199.98px) {
   .mediaDetailsContainer {
     padding-left: 10%;
+    padding-top: 8%;
+    gap: 6rem;
   }
 }
