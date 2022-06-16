@@ -9,7 +9,6 @@ function MovieDetails() {
   const { type, media_id, data, credits, fetchDetails } =
     useContext(MovieDetailsContext);
 
-  credits && console.log(credits);
   useEffect(() => {
     type && fetchDetails();
   }, []);
@@ -33,7 +32,7 @@ function MovieDetails() {
       return <p>{data.runtime}m</p>;
       // if result is a Tv show
     } else if (data.episode_run_time) {
-      return <p>{data.episode_run_time}m/Ep</p>;
+      return <p>{data.episode_run_time[0]}m/Ep</p>;
       // if movie/tv show hasn't released yet
     } else {
       return "N/A";
@@ -95,7 +94,10 @@ function MovieDetails() {
                 <h3>Crew:</h3>
                 <ul className="staffMembers">
                   {credits.crew.slice(0, 12).map((person) => (
-                    <li className="mediaStaffMember" key={person.id}>
+                    <li
+                      className="mediaStaffMember"
+                      key={credits.crew.indexOf(person)}
+                    >
                       {person.name}
                     </li>
                   ))}

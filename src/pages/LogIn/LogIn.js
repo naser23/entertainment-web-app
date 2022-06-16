@@ -78,8 +78,12 @@ function LogIn() {
           <p className="signUpOffer">
             Don't have an account?
             <Link className="signUpLink" to="/sign-up">
-              {" "}
               Sign up
+            </Link>
+          </p>
+          <p className="homePageButton">
+            <Link className="backToHomePage" to="/">
+              Back to homepage
             </Link>
           </p>
         </form>

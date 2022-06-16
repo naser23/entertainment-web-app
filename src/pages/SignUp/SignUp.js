@@ -138,6 +138,11 @@ function SignUp() {
               Login
             </Link>
           </div>
+          <p className="homePageButton">
+            <Link className="backToHomePage" to="/">
+              Back to homepage
+            </Link>
+          </p>
         </form>
       </main>
     </div>

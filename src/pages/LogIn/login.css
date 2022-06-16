@@ -73,6 +73,16 @@ input[type="text"]::placeholder {
   text-decoration: none;
 }
 
+.homePageButton {
+  text-align: center;
+}
+
+.backToHomePage {
+  color: var(--main-orange-color);
+  text-decoration: none;
+  text-align: center;
+}
+
 @media (min-width: 567.98px) {
 }
 
