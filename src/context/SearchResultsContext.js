@@ -44,7 +44,6 @@ export function SearchResultsProvider({ children }) {
       //   const params = new URLSearchParams({ query: text });
       const response = await fetch(searchUrl);
       const result = await response.json();
-      console.log(result);
       setLoading(false);
       return setSearchData({
         query: query,
