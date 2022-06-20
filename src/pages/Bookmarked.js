@@ -5,10 +5,32 @@ import MovieIcon from "../assets/icon-category-movie.svg";
 import TvIcon from "../assets/icon-category-tv.svg";
 import PlayIcon from "../assets/icon-play.svg";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import MovieApiContext from "../context/MovieApiContext";
+import SearchResultsContext from "../context/SearchResultsContext";
 
 function Bookmarked() {
   const { movieGenres, tvGenres } = useContext(MovieApiContext);
+  const { genre, discoverMovieData, setSearchData } =
+    useContext(SearchResultsContext);
+
+  const navigate = useNavigate();
+
+  function discoverMovies(id) {
+    setSearchData({
+      genre: id,
+    });
+    discoverMovieData(genre);
+    navigate("/movie-category");
+  }
+
+  function discoverTv(id) {
+    setSearchData({
+      genre: id,
+    });
+    genre && discoverMovieData(genre);
+    navigate("/tv-category");
+  }
 
   return (
     <>
@@ -20,7 +42,7 @@ function Bookmarked() {
               <div
                 key={item.id}
                 className="genreItem"
-                onClick={() => console.log(item.id)}
+                onClick={() => discoverMovies(item.id)}
               >
                 <h3 className="genreHeader">{item.name}</h3>
               </div>

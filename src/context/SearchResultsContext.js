@@ -10,10 +10,11 @@ export function SearchResultsProvider({ children }) {
   const [searchData, setSearchData] = useState({
     query: "",
     results: "",
+    genre: "",
   });
 
   const [pageNumber, setPageNumber] = useState(1);
-  const { query, results } = searchData;
+  const { query, results, genre } = searchData;
   // data for search results
   async function getData(text) {
     try {
@@ -32,6 +33,27 @@ export function SearchResultsProvider({ children }) {
     } catch (error) {
       console.error(error);
     }
+  }
+
+  function discoverMovieData() {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/discover/movie?api_key=7666a18c935f4f574785edd530e93698&with_genres=${genre}`
+      )
+      .then((resp) => {
+        console.log(resp);
+        setSearchData({
+          results: resp.data,
+        });
+      });
+  }
+
+  function discoverTVData() {
+    const tvShowsOfGenre = axios.get(
+      `https://api.themoviedb.org/3/discover/tv?api_key=7666a18c935f4f574785edd530e93698&with_genres=${genre}`
+    );
+
+    console.log(tvShowsOfGenre);
   }
 
   async function searchPagination(updatedPageNumber) {
@@ -59,8 +81,11 @@ export function SearchResultsProvider({ children }) {
       value={{
         query,
         results,
+        genre,
         pageNumber,
         getData,
+        discoverMovieData,
+        setSearchData,
         setPageNumber,
         searchPagination,
       }}

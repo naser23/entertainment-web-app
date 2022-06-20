@@ -16,6 +16,7 @@ import LogIn from "./pages/LogIn/LogIn";
 import SignUp from "./pages/SignUp/SignUp";
 import Profile from "./pages/Profile";
 import MovieDetails from "./pages/MovieDetails/MovieDetails";
+import MovieCategory from "./pages/MovieCategory";
 import Loading from "./components/Loading/Loading";
 
 function App() {
@@ -43,7 +44,12 @@ function App() {
               <Route path="/results" element={<NavbarRoute />}>
                 <Route path="/results" element={<SearchResults />}></Route>
               </Route>
-              <Route path="/results" element={<SearchResults />}></Route>
+              <Route path="/movie-category" element={<NavbarRoute />}>
+                <Route
+                  path="/movie-category"
+                  element={<MovieCategory />}
+                ></Route>
+              </Route>
 
               <Route path="/log-in" element={<LogIn />}></Route>
               <Route path="/sign-up" element={<SignUp />}></Route>
