@@ -46,6 +46,7 @@ export function SearchResultsProvider({ children }) {
           results: resp.data,
         });
       });
+    console.log("function ran!");
   }
 
   function discoverTVData() {

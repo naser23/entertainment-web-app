@@ -11,7 +11,7 @@ import { useContext, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 function MovieCategory() {
-  const { query, results, pageNumber, setPageNumber, searchPagination } =
+  const { results, pageNumber, setPageNumber, searchPagination } =
     useContext(SearchResultsContext);
 
   const { type, media_id, setMovieDetails } = useContext(MovieDetailsContext);
@@ -53,61 +53,9 @@ function MovieCategory() {
       type: "movie",
       media_id: item.id,
     });
-    navigate(`/${item.media_type}/${item.id}`);
+    navigate(`/movie/${item.id}`);
   }
-  return (
-    <>
-      <main className="pageContainer">
-        <h1 className="header">Genre Results</h1>
-        <ul className="mediaContainer">
-          {results &&
-            results.results.map((item) => (
-              <li
-                className="mediaItem"
-                key={item.id}
-                onClick={() => getMediaDetails(item)}
-              >
-                <Image item={item} />
-                {/* <div className="loading"></div> */}
-                <div className="mediaItemFacts">
-                  <p>{item.release_date && item.release_date.slice(0, 4)}</p>
-                  <div className="smallCircle"></div>
-                  <span className="itemCategory">
-                    <img src={MovieIcon} alt="Media Type Icon" />
-                    <p>{item.category}</p>
-                  </span>
-                  <div className="smallCircle"></div>
-                  <p>{item.vote_average}</p>
-                </div>
-                <h3 className="mediaTitle">{item.title}</h3>
-                <div className="playButtonContainer">
-                  <div className="playButton">
-                    <img src={PlayIcon} alt="Play-icon" />
-                    <p>Play</p>
-                  </div>
-                </div>
-              </li>
-            ))}
-        </ul>
-
-        {results && (
-          <div className="changePageContainer">
-            <div className="changePageBackground">
-              <button className="prevPage" onClick={downOnePage}>
-                Prev Page
-              </button>
-              <div className="currentPage">
-                Page {pageNumber} of {results && results.total_pages}
-              </div>
-              <button className="nextPage" onClick={upOnePage}>
-                Next Page
-              </button>
-            </div>
-          </div>
-        )}
-      </main>
-    </>
-  );
+  return <></>;
 }
 
 export default MovieCategory;
