@@ -9,7 +9,6 @@ import MovieApiContext from "../context/MovieApiContext";
 
 function Bookmarked() {
   const { movieGenres, tvGenres } = useContext(MovieApiContext);
-  tvGenres && console.log(tvGenres.genres);
 
   return (
     <>

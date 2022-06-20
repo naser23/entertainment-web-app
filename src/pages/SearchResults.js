@@ -26,7 +26,7 @@ function SearchResults() {
   if (results && results.length == 0) {
     return (
       <main className="pageContainer">
-        <h1 className="header">Results for Search</h1>
+        <h1 className="header">Results for Query</h1>
         <p>No Results...</p>
       </main>
     );
