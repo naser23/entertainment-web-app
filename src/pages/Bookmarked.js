@@ -17,7 +17,11 @@ function Bookmarked() {
         <ul className="genreContainer">
           {movieGenres &&
             movieGenres.genres.map((item) => (
-              <div key={item.id} className="genreItem">
+              <div
+                key={item.id}
+                className="genreItem"
+                onClick={() => console.log(item.id)}
+              >
                 <h3 className="genreHeader">{item.name}</h3>
               </div>
             ))}
