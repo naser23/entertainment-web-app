@@ -11,13 +11,13 @@ import SearchResultsContext from "../context/SearchResultsContext";
 
 function Bookmarked() {
   const { movieGenres, tvGenres } = useContext(MovieApiContext);
-  const { genre, discoverMovieData, setSearchData } =
+  const { genre, discoverMovieData, setSearchData, setGenreData } =
     useContext(SearchResultsContext);
 
   const navigate = useNavigate();
 
   function discoverMovies(id) {
-    setSearchData({
+    setGenreData({
       genre: id,
     });
     discoverMovieData(genre);
