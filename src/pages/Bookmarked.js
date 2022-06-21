@@ -11,24 +11,20 @@ import SearchResultsContext from "../context/SearchResultsContext";
 
 function Bookmarked() {
   const { movieGenres, tvGenres } = useContext(MovieApiContext);
-  const { genre, discoverMovieData, setSearchData, setGenreData } =
+  const { setGenre, discoverMovieData, discoverTVData, setSearchData } =
     useContext(SearchResultsContext);
 
   const navigate = useNavigate();
 
   function discoverMovies(id) {
-    setGenreData({
-      genre: id,
-    });
-    discoverMovieData(genre);
+    setGenre(id);
+    discoverMovieData(id);
     navigate("/movie-category");
   }
 
   function discoverTv(id) {
-    setSearchData({
-      genre: id,
-    });
-    genre && discoverMovieData(genre);
+    setGenre(id);
+    discoverTVData(id);
     navigate("/tv-category");
   }
 
@@ -53,7 +49,11 @@ function Bookmarked() {
           <ul className="genreContainer">
             {tvGenres &&
               tvGenres.genres.map((item) => (
-                <div key={item.id} className="genreItem">
+                <div
+                  key={item.id}
+                  className="genreItem"
+                  onClick={() => discoverTv(item.id)}
+                >
                   <h3 className="genreHeader">{item.name}</h3>
                 </div>
               ))}

@@ -11,14 +11,12 @@ export function SearchResultsProvider({ children }) {
     query: "",
     results: "",
   });
-  const [genreData, setGenreData] = useState({
-    categoryResults: "",
-    genre: "",
-  });
+
+  const [genre, setGenre] = useState();
+  const [categoryResults, setCategoryResults] = useState();
 
   const [pageNumber, setPageNumber] = useState(1);
   const { query, results } = searchData;
-  const { categoryResults, genre } = genreData;
 
   // data for search results
   async function getData(text) {
@@ -42,30 +40,26 @@ export function SearchResultsProvider({ children }) {
 
   // for movie category data
   function discoverMovieData(genre) {
+    setPageNumber(1);
     axios
       .get(
         `https://api.themoviedb.org/3/discover/movie?api_key=7666a18c935f4f574785edd530e93698&with_genres=${genre}`
       )
       .then((resp) => {
-        setGenreData({
-          categoryResults: resp.data,
-        });
+        setCategoryResults(resp.data);
         console.log("function ran!");
       });
   }
 
   // for tv category data
   function discoverTVData(genre) {
+    setPageNumber(1);
     axios
       .get(
         `https://api.themoviedb.org/3/discover/tv?api_key=7666a18c935f4f574785edd530e93698&with_genres=${genre}`
       )
       .then((resp) => {
-        console.log(resp.data);
-
-        setGenreData({
-          categoryResults: resp.data,
-        });
+        setCategoryResults(resp.data);
       });
     console.log("function ran!");
   }
@@ -97,9 +91,18 @@ export function SearchResultsProvider({ children }) {
     const pageUrl = `https://api.themoviedb.org/3/discover/movie?api_key=7666a18c935f4f574785edd530e93698&with_genres=${genre}${currentPageNumber}`;
 
     axios.get(pageUrl).then((resp) => {
-      setGenreData({
-        categoryResults: resp.data,
-      });
+      setCategoryResults(resp.data);
+    });
+  }
+
+  // Tv Search Pagination
+  function tvCategoryPagePagination(updatedPageNumber) {
+    const currentPageNumber = `&page=${updatedPageNumber}`;
+
+    const pageUrl = `https://api.themoviedb.org/3/discover/tv?api_key=7666a18c935f4f574785edd530e93698&with_genres=${genre}${currentPageNumber}`;
+
+    axios.get(pageUrl).then((resp) => {
+      setCategoryResults(resp.data);
     });
   }
 
@@ -112,9 +115,11 @@ export function SearchResultsProvider({ children }) {
         categoryResults,
         getData,
         discoverMovieData,
+        discoverTVData,
         setSearchData,
-        setGenreData,
+        setGenre,
         movieCategoryPagePagination,
+        tvCategoryPagePagination,
         setPageNumber,
         searchPagination,
       }}

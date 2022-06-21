@@ -17,6 +17,7 @@ import SignUp from "./pages/SignUp/SignUp";
 import Profile from "./pages/Profile";
 import MovieDetails from "./pages/MovieDetails/MovieDetails";
 import MovieCategory from "./pages/MovieCategory";
+import TvCategory from "./pages/TvCategory";
 import Loading from "./components/Loading/Loading";
 
 function App() {
@@ -49,6 +50,9 @@ function App() {
                   path="/movie-category"
                   element={<MovieCategory />}
                 ></Route>
+              </Route>
+              <Route path="/tv-category" element={<NavbarRoute />}>
+                <Route path="/tv-category" element={<TvCategory />}></Route>
               </Route>
 
               <Route path="/log-in" element={<LogIn />}></Route>
