@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { useAuthStatus } from "../../hooks/useAuthStatus";
 import Logo from "../Logo/Logo";
 import ImageAvatar from "../../assets/image-avatar.png";
@@ -18,18 +18,30 @@ function Navbar() {
       <nav className="navbar">
         <Logo />
         <ul className="navbarLinks">
-          <li onClick={() => navigate("/")}>
+          <NavLink
+            className={(navData) => (navData.isActive ? "activeImg" : "")}
+            to="/"
+          >
             <img src={HomeLogoNav} alt="Home Logo" />
-          </li>
-          <li onClick={() => navigate("/movies")}>
+          </NavLink>
+          <NavLink
+            className={(navData) => (navData.isActive ? "activeImg" : "")}
+            to="/movies"
+          >
             <img src={MovieLogoNav} alt="Movie Logo" />
-          </li>
-          <li onClick={() => navigate("/tv-series")}>
+          </NavLink>
+          <NavLink
+            className={(navData) => (navData.isActive ? "activeImg" : "")}
+            to="/tv-series"
+          >
             <img src={TvLogoNav} alt="TV Logo" />
-          </li>
-          <li onClick={() => navigate("/bookmarked")}>
+          </NavLink>
+          <NavLink
+            className={(navData) => (navData.isActive ? "activeImg" : "")}
+            to="/bookmarked"
+          >
             <img src={BookmarkLogoNav} alt="Bookmarked Logo" />
-          </li>
+          </NavLink>
         </ul>
 
         <button

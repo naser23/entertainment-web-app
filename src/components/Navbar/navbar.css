@@ -17,6 +17,11 @@
   gap: 1.5rem;
 }
 
+.activeImg {
+  filter: invert(91%) sepia(100%) saturate(2%) hue-rotate(279deg)
+    brightness(104%) contrast(101%);
+}
+
 .avatarImgButton {
   background: none;
   border: none;
