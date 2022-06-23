@@ -12,7 +12,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function TvCategory() {
   const {
-    categoryResults,
+    categoryTvResults,
     pageNumber,
     setPageNumber,
     searchPagination,
@@ -26,10 +26,10 @@ function TvCategory() {
 
   useEffect(() => {
     // if the user has searched for results then searchPagination will run.
-    categoryResults && tvCategoryPagePagination(pageNumber);
+    categoryTvResults && tvCategoryPagePagination(pageNumber);
   }, [pageNumber]);
 
-  if (categoryResults && categoryResults.length == 0) {
+  if (categoryTvResults && categoryTvResults.length == 0) {
     return (
       <main className="pageContainer">
         <h1 className="header">Results for Query</h1>
@@ -39,13 +39,13 @@ function TvCategory() {
   }
 
   function upOnePage() {
-    if (pageNumber >= 1 && pageNumber < categoryResults.total_pages) {
+    if (pageNumber >= 1 && pageNumber < categoryTvResults.total_pages) {
       setPageNumber(() => pageNumber + 1);
     }
   }
 
   function downOnePage() {
-    if (pageNumber > 1 && pageNumber <= categoryResults.total_pages) {
+    if (pageNumber > 1 && pageNumber <= categoryTvResults.total_pages) {
       setPageNumber(() => pageNumber - 1);
     }
   }
@@ -63,8 +63,8 @@ function TvCategory() {
       <main className="pageContainer">
         <h1 className="header">Results for Genre</h1>
         <ul className="mediaContainer">
-          {categoryResults &&
-            categoryResults.results.map((item) => (
+          {categoryTvResults &&
+            categoryTvResults.results.map((item) => (
               <li
                 className="mediaItem"
                 key={item.id}
@@ -93,7 +93,7 @@ function TvCategory() {
             ))}
         </ul>
 
-        {categoryResults && (
+        {categoryTvResults && (
           <div className="changePageContainer">
             <div className="changePageBackground">
               <button className="prevPage" onClick={downOnePage}>
@@ -101,7 +101,7 @@ function TvCategory() {
               </button>
               <div className="currentPage">
                 Page {pageNumber} of
-                {categoryResults && categoryResults.total_pages}
+                {categoryTvResults && categoryTvResults.total_pages}
               </div>
               <button className="nextPage" onClick={upOnePage}>
                 Next Page

@@ -12,7 +12,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function MovieCategory() {
   const {
-    categoryResults,
+    categoryMovieResults,
     pageNumber,
     setPageNumber,
     searchPagination,
@@ -26,10 +26,10 @@ function MovieCategory() {
 
   useEffect(() => {
     // if the user has searched for results then searchPagination will run.
-    categoryResults && movieCategoryPagePagination(pageNumber);
+    categoryMovieResults && movieCategoryPagePagination(pageNumber);
   }, [pageNumber]);
 
-  if (categoryResults && categoryResults.length == 0) {
+  if (categoryMovieResults && categoryMovieResults.length == 0) {
     return (
       <main className="pageContainer">
         <h1 className="header">Results for Query</h1>
@@ -38,14 +38,19 @@ function MovieCategory() {
     );
   }
 
+  {
+    categoryMovieResults &&
+      categoryMovieResults.results.map((item) => console.log(item));
+  }
+
   function upOnePage() {
-    if (pageNumber >= 1 && pageNumber < categoryResults.total_pages) {
+    if (pageNumber >= 1 && pageNumber < categoryMovieResults.total_pages) {
       setPageNumber(() => pageNumber + 1);
     }
   }
 
   function downOnePage() {
-    if (pageNumber > 1 && pageNumber <= categoryResults.total_pages) {
+    if (pageNumber > 1 && pageNumber <= categoryMovieResults.total_pages) {
       setPageNumber(() => pageNumber - 1);
     }
   }
@@ -63,8 +68,8 @@ function MovieCategory() {
       <main className="pageContainer">
         <h1 className="header">Results for Genre</h1>
         <ul className="mediaContainer">
-          {categoryResults &&
-            categoryResults.results.map((item) => (
+          {categoryMovieResults &&
+            categoryMovieResults.results.map((item) => (
               <li
                 className="mediaItem"
                 key={item.id}
@@ -93,7 +98,7 @@ function MovieCategory() {
             ))}
         </ul>
 
-        {categoryResults && (
+        {categoryMovieResults && (
           <div className="changePageContainer">
             <div className="changePageBackground">
               <button className="prevPage" onClick={downOnePage}>
@@ -101,7 +106,7 @@ function MovieCategory() {
               </button>
               <div className="currentPage">
                 Page {pageNumber} of
-                {categoryResults && categoryResults.total_pages}
+                {categoryMovieResults && categoryMovieResults.total_pages}
               </div>
               <button className="nextPage" onClick={upOnePage}>
                 Next Page

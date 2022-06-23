@@ -13,7 +13,8 @@ export function SearchResultsProvider({ children }) {
   });
 
   const [genre, setGenre] = useState();
-  const [categoryResults, setCategoryResults] = useState();
+  const [categoryMovieResults, setCategoryMovieResults] = useState();
+  const [categoryTvResults, setCategoryTvResults] = useState();
 
   const [pageNumber, setPageNumber] = useState(1);
   const { query, results } = searchData;
@@ -46,7 +47,7 @@ export function SearchResultsProvider({ children }) {
         `https://api.themoviedb.org/3/discover/movie?api_key=7666a18c935f4f574785edd530e93698&with_genres=${genre}`
       )
       .then((resp) => {
-        setCategoryResults(resp.data);
+        setCategoryMovieResults(resp.data);
         console.log("function ran!");
       });
   }
@@ -59,7 +60,8 @@ export function SearchResultsProvider({ children }) {
         `https://api.themoviedb.org/3/discover/tv?api_key=7666a18c935f4f574785edd530e93698&with_genres=${genre}`
       )
       .then((resp) => {
-        setCategoryResults(resp.data);
+        setCategoryTvResults(resp.data);
+        console.log(resp.data);
       });
     console.log("function ran!");
   }
@@ -91,7 +93,7 @@ export function SearchResultsProvider({ children }) {
     const pageUrl = `https://api.themoviedb.org/3/discover/movie?api_key=7666a18c935f4f574785edd530e93698&with_genres=${genre}${currentPageNumber}`;
 
     axios.get(pageUrl).then((resp) => {
-      setCategoryResults(resp.data);
+      setCategoryMovieResults(resp.data);
     });
   }
 
@@ -102,7 +104,7 @@ export function SearchResultsProvider({ children }) {
     const pageUrl = `https://api.themoviedb.org/3/discover/tv?api_key=7666a18c935f4f574785edd530e93698&with_genres=${genre}${currentPageNumber}`;
 
     axios.get(pageUrl).then((resp) => {
-      setCategoryResults(resp.data);
+      setCategoryTvResults(resp.data);
     });
   }
 
@@ -112,7 +114,8 @@ export function SearchResultsProvider({ children }) {
         query,
         results,
         pageNumber,
-        categoryResults,
+        categoryMovieResults,
+        categoryTvResults,
         getData,
         discoverMovieData,
         discoverTVData,
