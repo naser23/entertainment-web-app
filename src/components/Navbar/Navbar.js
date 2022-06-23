@@ -18,30 +18,38 @@ function Navbar() {
       <nav className="navbar">
         <Logo />
         <ul className="navbarLinks">
-          <NavLink
-            className={(navData) => (navData.isActive ? "activeImg" : "")}
-            to="/"
-          >
-            <img src={HomeLogoNav} alt="Home Logo" />
-          </NavLink>
-          <NavLink
-            className={(navData) => (navData.isActive ? "activeImg" : "")}
-            to="/movies"
-          >
-            <img src={MovieLogoNav} alt="Movie Logo" />
-          </NavLink>
-          <NavLink
-            className={(navData) => (navData.isActive ? "activeImg" : "")}
-            to="/tv-series"
-          >
-            <img src={TvLogoNav} alt="TV Logo" />
-          </NavLink>
-          <NavLink
-            className={(navData) => (navData.isActive ? "activeImg" : "")}
-            to="/bookmarked"
-          >
-            <img src={BookmarkLogoNav} alt="Bookmarked Logo" />
-          </NavLink>
+          <li>
+            <NavLink
+              className={(navData) => (navData.isActive ? "activeImg" : "")}
+              to="/"
+            >
+              <img src={HomeLogoNav} alt="Home Logo" />
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={(navData) => (navData.isActive ? "activeImg" : "")}
+              to="/movies"
+            >
+              <img src={MovieLogoNav} alt="Movie Logo" />
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={(navData) => (navData.isActive ? "activeImg" : "")}
+              to="/tv-series"
+            >
+              <img src={TvLogoNav} alt="TV Logo" />
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={(navData) => (navData.isActive ? "activeImg" : "")}
+              to="/bookmarked"
+            >
+              <img src={BookmarkLogoNav} alt="Bookmarked Logo" />
+            </NavLink>
+          </li>
         </ul>
 
         <button

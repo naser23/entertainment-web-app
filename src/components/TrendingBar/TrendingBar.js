@@ -59,9 +59,9 @@ function TrendingBar() {
                     <p>{item.vote_average}</p>
                   </div>
 
-                  <h3 className="trendingMediaTitle">
+                  <h2 className="trendingMediaTitle">
                     {item.media_type == "movie" ? item.title : item.name}
-                  </h3>
+                  </h2>
                 </section>
               </li>
             ))}
