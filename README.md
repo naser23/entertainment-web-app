@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+This is a premium project challenge that I accepted from frontendmentor.io
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an Entertainment Web App where users can view and look up their favorite movies and tv shows and see all kinds of info about them. Users can also make and account and log in on my web app. users with accounts will be able to review and rate movies and tv shows in the future. All info about the movies comes from the tmdb api. Learn more about tmdb here: https://www.themoviedb.org/
 
-## Available Scripts
+link to the live site: https://entertainment-web-app-naser23.netlify.app/
 
-In the project directory, you can run:
+I've Learned a lot when making this project but some of the biggest things I've learned were:
 
-### `npm start`
+1. how to create and authenticate users on my site with firebase.
+2. how to verify email addresses that users try to sign up with and prevent them from using their account until they verify their email address.
+3. how to work with the tmdb api to display and filter through data on each page (search pagination).
+4. how to use axios to make multiple requests for displaying data on load.
+5. how to use useEffect to make certain actions to happen syncronously with state.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Even though I'm proud of this project, I know it's not perfect and there are a lot of changes that I can make. Here are some that I need to make:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Find a way to improve performance (it was showing to be a 75 average for lighthouse/performance from my testing on desktop).
+2. Implement the review feature using firebase/firestore.
+3. Add a unique profile picture for each user that has an account and is logged in.
+4. refactor the code (specifically the css and context files). to be easier to read for me and others.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+screenshots are coming in the future.
