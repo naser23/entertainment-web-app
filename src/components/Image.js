@@ -38,7 +38,7 @@ function Image(item) {
           alt={item.item.media_type}
           effect="blur"
           placeholder={<div className="loading"></div>}
-          height="100%"
+          height="100"
         />
       ) : (
         <div className="loading"></div>

@@ -71,7 +71,6 @@ function TvCategory() {
                 onClick={() => getMediaDetails(item)}
               >
                 <Image item={item} />
-                {/* <div className="loading"></div> */}
                 <div className="mediaItemFacts">
                   <p>{item.first_air_date.slice(0, 4)}</p>
                   <span className="smallCircle"></span>
