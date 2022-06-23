@@ -53,9 +53,9 @@ function Recommended() {
                 <div className="smallCircle"></div>
                 <p>{item.vote_average}</p>
               </div>
-              <h3 className="mediaTitle">
+              <h2 className="mediaTitle">
                 {item.media_type == "movie" ? item.title : item.name}
-              </h3>
+              </h2>
               <div className="playButtonContainer">
                 <div className="playButton">
                   <img src={PlayIcon} alt="Play-icon" />
