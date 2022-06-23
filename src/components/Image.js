@@ -37,11 +37,11 @@ function Image(item) {
           src={backdropNull !== null ? backdropImg : posterImg}
           alt={item.item.media_type}
           effect="blur"
-          placeholder={<div className="loading"></div>}
+          placeholder={<span className="loading"></span>}
           height="100"
         />
       ) : (
-        <div className="loading"></div>
+        <span className="loading"></span>
       )}
     </>
   );
