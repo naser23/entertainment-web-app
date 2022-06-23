@@ -47,14 +47,14 @@ function TrendingBar() {
                         ? item.release_date.slice(0, 4)
                         : item.first_air_date.slice(0, 4)}
                     </p>
-                    <div className="smallCircle"></div>
-                    <span className="itemCategory">
+                    <span className="smallCircle"></span>
+                    <div className="itemCategory">
                       <img
                         src={item.media_type === "movie" ? MovieIcon : TvIcon}
                         alt="Media Type Icon"
                       />
                       <p>{item.media_type}</p>
-                    </span>
+                    </div>
                     <div className="smallCircle"></div>
                     <p>{item.vote_average}</p>
                   </div>

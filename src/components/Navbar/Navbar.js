@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink, Link } from "react-router-dom";
 import { useAuthStatus } from "../../hooks/useAuthStatus";
 import Logo from "../Logo/Logo";
 import ImageAvatar from "../../assets/image-avatar.png";
@@ -24,7 +24,6 @@ function Navbar() {
           >
             <img src={HomeLogoNav} alt="Home Logo" />
           </NavLink>
-
           <NavLink
             className={(navData) => (navData.isActive ? "activeImg" : "")}
             to="/movies"
@@ -47,16 +46,13 @@ function Navbar() {
           </NavLink>
         </div>
 
-        <button
-          className="avatarImgButton"
-          onClick={() => navigate("/profile")}
-        >
+        <div className="avatarImgButton" onClick={() => navigate("/profile")}>
           {loggedIn ? (
             <img className="avatarImg" src={ImageAvatar} alt="image avatar" />
           ) : (
             <p className="profileImg">P</p>
           )}
-        </button>
+        </div>
       </nav>
     </>
   );

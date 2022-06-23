@@ -36,11 +36,11 @@ function TopRatedTv() {
 
               <div className="mediaItemFacts">
                 <p>{item.first_air_date.slice(0, 4)}</p>
-                <div className="smallCircle"></div>
-                <span className="itemCategory">
+                <span className="smallCircle"></span>
+                <div className="itemCategory">
                   <img src={TvIcon} alt="Media Type Icon" />
                   <p>tv</p>
-                </span>
+                </div>
                 <div className="smallCircle"></div>
                 <p>{item.vote_average}</p>
               </div>
